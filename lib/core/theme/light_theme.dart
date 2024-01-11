@@ -1,3 +1,7 @@
+import 'package:cinemixe/core/theme/color_palette.dart';
+import 'package:cinemixe/core/theme/extentions/color_extention.dart';
+import 'package:cinemixe/core/theme/extentions/space_extention.dart';
+import 'package:cinemixe/core/theme/extentions/typography_extention.dart';
 import 'package:flutter/material.dart';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
