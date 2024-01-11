@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:cinemixe/core/widgets/text_flied.dart';
 import 'package:flutter/material.dart';
 
 class Loginpage extends StatelessWidget {
@@ -25,6 +26,9 @@ class Loginpage extends StatelessWidget {
                 width: 100,
               ),
             ),
+          ),
+          const TextFieldWidget(
+            text: "name",
           ),
         ],
       ),
