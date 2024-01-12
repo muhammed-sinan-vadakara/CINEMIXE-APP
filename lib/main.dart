@@ -1,9 +1,13 @@
 import 'package:cinemixe/core/theme/light_theme.dart';
 import 'package:cinemixe/feactures/authenthication/presentation/pages/login_page.dart';
+import 'package:cinemixe/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(const ProviderScope(child: MovieApp()));
 }
 

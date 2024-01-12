@@ -13,7 +13,7 @@ class SignupLoginButton extends StatelessWidget {
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
               backgroundColor: AppTheme.of(context).colors.primary,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)))),
           onPressed: () {},
           child: Text(buttonText!)),

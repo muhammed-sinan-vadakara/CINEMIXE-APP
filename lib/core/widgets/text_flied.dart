@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
   final String? hinttText;
+  final TextEditingController controller;
   final Widget? prefixxIcon;
   final Widget? suffixxIcon;
 
@@ -10,7 +11,8 @@ class TextFieldWidget extends StatelessWidget {
       {super.key,
       required this.hinttText,
       required this.prefixxIcon,
-      this.suffixxIcon});
+      this.suffixxIcon,
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {
