@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class login_page_text {
+class Loginpagetext {
   //login page text feild hint text
-  static String? text_flied_email = "EMAIL";
-  static String? text_flied_password = "PASSWORD";
+  static String? textfliedemail = "EMAIL";
+  static String? textfliedpassword = "PASSWORD";
 
   //login page text feild icons
-  static Widget? email_prefixicon = Icon(Icons.email);
-  static Widget? password_prefixicon = Icon(Icons.fingerprint);
-  static Widget? password_suffixicon = Icon(Icons.remove_red_eye_sharp);
+  static Widget? emailprefixicon = const Icon(Icons.email);
+  static Widget? passwordprefixicon = const Icon(Icons.fingerprint);
+  static Widget? passwordsuffixicon = const Icon(Icons.remove_red_eye_sharp);
 
   //login page buttons
-  static String? button_login = "LOGIN";
-  static String? button_forgot_password = "FORGOT PASSWORD";
-  static String? button_create_account = "CREATE NEW ACCOUNT";
+  static String? buttonlogin = "LOGIN";
+  static String? buttonforgotpassword = "FORGOT PASSWORD";
+  static String? buttoncreateaccount = "CREATE NEW ACCOUNT";
 }

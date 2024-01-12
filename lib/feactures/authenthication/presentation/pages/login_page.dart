@@ -14,7 +14,7 @@ class Loginpage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Transform.translate(
@@ -31,17 +31,17 @@ class Loginpage extends StatelessWidget {
             ),
           ),
           TextFieldWidget(
-              hinttText: login_page_text.text_flied_email,
-              prefixxIcon: login_page_text.email_prefixicon),
+              hinttText: Loginpagetext.textfliedemail,
+              prefixxIcon: Loginpagetext.emailprefixicon),
           SizedBox(
             height: AppTheme.of(context).spaces.space_400,
           ),
           TextFieldWidget(
-            hinttText: login_page_text.text_flied_password,
-            prefixxIcon: login_page_text.password_prefixicon,
-            suffixxIcon: login_page_text.password_suffixicon,
+            hinttText: Loginpagetext.textfliedpassword,
+            prefixxIcon: Loginpagetext.passwordprefixicon,
+            suffixxIcon: Loginpagetext.passwordsuffixicon,
           ),
-          SignupLoginButton(buttonText: login_page_text.button_login)
+          SignupLoginButton(buttonText: Loginpagetext.buttonlogin)
         ],
       ),
     );
