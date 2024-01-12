@@ -14,8 +14,9 @@ class Loginpage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const SizedBox(
-            height: 20,
+          //sized box
+          SizedBox(
+            height: AppTheme.of(context).spaces.space_900,
           ),
           Transform.translate(
             offset: Offset(MediaQuery.sizeOf(context).width * 0.8, 1),
@@ -24,23 +25,42 @@ class Loginpage extends StatelessWidget {
                 ..rotateZ(pi * -0.08)
                 ..rotateY(0.0),
               child: Container(
-                color: Colors.red,
+                color: AppTheme.of(context).colors.primary,
                 height: 100,
                 width: 100,
               ),
             ),
           ),
-          TextFieldWidget(
-              hinttText: Loginpagetext.textfliedemail,
-              prefixxIcon: Loginpagetext.emailprefixicon),
+
+          //textfield for email
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: TextFieldWidget(
+                hinttText: Loginpagetext.textfliedemail,
+                prefixxIcon: Loginpagetext.emailprefixicon),
+          ),
+
+          //sized box
           SizedBox(
             height: AppTheme.of(context).spaces.space_400,
           ),
-          TextFieldWidget(
-            hinttText: Loginpagetext.textfliedpassword,
-            prefixxIcon: Loginpagetext.passwordprefixicon,
-            suffixxIcon: Loginpagetext.passwordsuffixicon,
+
+          //text field for password
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: TextFieldWidget(
+              hinttText: Loginpagetext.textfliedpassword,
+              prefixxIcon: Loginpagetext.passwordprefixicon,
+              suffixxIcon: Loginpagetext.passwordsuffixicon,
+            ),
           ),
+
+          //sized box
+          SizedBox(
+            height: AppTheme.of(context).spaces.space_400,
+          ),
+
+          //login button
           SignupLoginButton(buttonText: Loginpagetext.buttonlogin)
         ],
       ),

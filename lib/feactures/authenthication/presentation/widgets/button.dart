@@ -12,7 +12,9 @@ class SignupLoginButton extends StatelessWidget {
       width: 356,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              backgroundColor: AppTheme.of(context).colors.primary),
+              backgroundColor: AppTheme.of(context).colors.primary,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20)))),
           onPressed: () {},
           child: Text(buttonText!)),
     );

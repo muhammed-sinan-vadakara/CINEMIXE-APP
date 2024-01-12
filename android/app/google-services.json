@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "711311729966",
+    "project_id": "cinemixe-app",
+    "storage_bucket": "cinemixe-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711311729966:android:3672debf63c58266f6c6bf",
+        "android_client_info": {
+          "package_name": "com.example.cinemixe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSvLjugf9CjYTx04HCsl1GertUPFwXjhc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
