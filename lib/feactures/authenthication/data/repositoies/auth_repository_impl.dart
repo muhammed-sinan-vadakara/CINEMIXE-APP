@@ -1,17 +1,34 @@
+import 'package:authentication_sample/features/authentication/data/data_sources/firebase_auth/firebase_auth_datasource.dart';
+import 'package:authentication_sample/features/authentication/data/data_sources/firebase_auth/firebase_auth_datasource_impl.dart';
+import 'package:authentication_sample/features/authentication/domain/repository/auth_repository.dart';
 import 'package:cinemixe/feactures/authenthication/data/datasource/authetication_datasource.dart';
 import 'package:cinemixe/feactures/authenthication/domain/repositories/auth_repository.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'auth_repository_impl.g.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
-  final AuthenthicationDataSoucre dataSoucre;
-  AuthRepositoryImpl({required this.dataSoucre});
+  final FirebaseAuthDataSource datasource;
+  AuthRepositoryImpl({required this.datasource});
+
   @override
-  Future<UserCredential> login(String password, String email) {
-    return dataSoucre.login(password, email);
+  Future<void> createAccount(String email, String password) async {
+    await datasource.createAccount(email, password);
   }
 
   @override
-  Future<UserCredential> signup(String password, String email) {
-    return dataSoucre.signup(password, email);
+  Future<void> loginUser(String email, String password) async {
+    await datasource.loginUser(email, password);
   }
+
+  @override
+  Future<void> logout() async {
+    await datasource.logout();
+  }
+}
+
+@riverpod
+AuthRepository authRepository(AuthRepositoryRef ref) {
+  return AuthRepositoryImpl(
+      datasource: ref.watch(firebaseAuthDataSourceProvider));
 }
