@@ -1,6 +1,4 @@
-import 'package:authentication_sample/features/authentication/data/data_sources/firebase_auth/firebase_auth_datasource.dart';
-import 'package:authentication_sample/features/authentication/data/data_sources/firebase_auth/firebase_auth_datasource_impl.dart';
-import 'package:authentication_sample/features/authentication/domain/repository/auth_repository.dart';
+import 'package:cinemixe/feactures/authenthication/data/datasource/authentication_datasource_impl.dart';
 import 'package:cinemixe/feactures/authenthication/data/datasource/authetication_datasource.dart';
 import 'package:cinemixe/feactures/authenthication/domain/repositories/auth_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

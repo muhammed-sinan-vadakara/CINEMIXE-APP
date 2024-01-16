@@ -1,6 +1,5 @@
 import 'package:cinemixe/core/router/router.dart';
 import 'package:cinemixe/core/theme/light_theme.dart';
-import 'package:cinemixe/feactures/authenthication/presentation/pages/login_page.dart';
 import 'package:cinemixe/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  runApp(const ProviderScope(child: RootWidget()));
+  runApp(const ProviderScope(overrides: [], child: MovieApp()));
 }
 
 class MovieApp extends ConsumerWidget {
@@ -21,7 +20,7 @@ class MovieApp extends ConsumerWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ref.watch(lightThemeProvider),
-      routerConfig: router,
+      routerConfig: ref.watch(routerProvider),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:cinemixe/core/exceptions/authentication/auth_failed_exception.dart';
+import 'package:cinemixe/core/exceptions/authentication/invalid_credentials_exception.dart';
 import 'package:cinemixe/feactures/authenthication/domain/repositories/auth_repository.dart';
 
 final class LoginUsecase {

@@ -1,10 +1,13 @@
-import 'package:cinemixe/core/exceptions/authentication/base_exception.dart';
+import 'package:cinemixe/core/exceptions/base_exception.dart';
 import 'package:cinemixe/core/utils/snackbar_utils.dart';
+import 'package:cinemixe/feactures/authenthication/data/repositoies/auth_repository_impl.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/login_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/logout_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/signup_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/presentation/pages/home_page.dart';
+import 'package:cinemixe/feactures/authenthication/presentation/pages/login_page.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

@@ -17,6 +17,7 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       cursorColor: AppTheme.of(context).colors.text,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
