@@ -1,9 +1,14 @@
 abstract class FirebaseAuthDataSource {
   Future<void> loginUser(String email, String password);
   Future<void> createAccount(String email, String password);
-  Future<void> logout();
-  Future<void> emailVerfication();
   Future<void> resetPassword(String email);
+  Future<void> logout();
+  Future<void> emailChange();
+  Future<void> emailVerfication();
+  Future<void> phoneNumberChange();
+  Future<void> googleverification();
+  Future<void> fasebookVerification();
+  Future<void> phoneNumberVerification();
 }
 
 

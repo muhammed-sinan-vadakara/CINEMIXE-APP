@@ -25,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -69,6 +66,19 @@ class DefaultFirebaseOptions {
     messagingSenderId: '711311729966',
     projectId: 'cinemixe-app',
     storageBucket: 'cinemixe-app.appspot.com',
+    androidClientId: '711311729966-3ea6jgabvcm31ovdfpk00t3c6ga3g2gj.apps.googleusercontent.com',
+    iosClientId: '711311729966-7975d7437u9t8dbi93h87k2u4b2sj873.apps.googleusercontent.com',
     iosBundleId: 'com.example.cinemixe',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBXVejrN4FGSkAOPeO0JJFyGEoSKbBKPus',
+    appId: '1:711311729966:ios:9e72dff2486f0c36f6c6bf',
+    messagingSenderId: '711311729966',
+    projectId: 'cinemixe-app',
+    storageBucket: 'cinemixe-app.appspot.com',
+    androidClientId: '711311729966-3ea6jgabvcm31ovdfpk00t3c6ga3g2gj.apps.googleusercontent.com',
+    iosClientId: '711311729966-ru3cn2386045suvai0fjh8jpt7gl28e7.apps.googleusercontent.com',
+    iosBundleId: 'com.example.cinemixe.RunnerTests',
   );
 }

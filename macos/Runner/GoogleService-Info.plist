@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>711311729966-ru3cn2386045suvai0fjh8jpt7gl28e7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.711311729966-ru3cn2386045suvai0fjh8jpt7gl28e7</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>711311729966-3ea6jgabvcm31ovdfpk00t3c6ga3g2gj.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBXVejrN4FGSkAOPeO0JJFyGEoSKbBKPus</string>
+	<key>GCM_SENDER_ID</key>
+	<string>711311729966</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.cinemixe.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>cinemixe-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cinemixe-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:711311729966:ios:9e72dff2486f0c36f6c6bf</string>
+</dict>
+</plist>
