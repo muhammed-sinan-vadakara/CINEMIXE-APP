@@ -23,6 +23,16 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> logout() async {
     await datasource.logout();
   }
+
+  @override
+  Future<void> emailVerify() async {
+    await datasource.emailVerfication();
+  }
+
+  @override
+  Future<void> resetPasswordbyemail(String email) async {
+    await datasource.resetPassword(email);
+  }
 }
 
 @riverpod

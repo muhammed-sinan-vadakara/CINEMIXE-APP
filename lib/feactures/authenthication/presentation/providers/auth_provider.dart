@@ -1,8 +1,10 @@
 import 'package:cinemixe/core/exceptions/base_exception.dart';
 import 'package:cinemixe/core/utils/snackbar_utils.dart';
 import 'package:cinemixe/feactures/authenthication/data/repositoies/auth_repository_impl.dart';
+import 'package:cinemixe/feactures/authenthication/domain/usecases/email_verification_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/login_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/logout_usecase.dart';
+import 'package:cinemixe/feactures/authenthication/domain/usecases/reset_password_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/signup_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/presentation/pages/home_page.dart';
 import 'package:cinemixe/feactures/authenthication/presentation/pages/login_page.dart';
@@ -24,6 +26,7 @@ class Authentication extends _$Authentication {
     try {
       await SignupUsecase(repository: ref.watch(authRepositoryProvider))(
           email, password);
+      await verifyEmail();
       Future.sync(() => context.go(HomePage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
@@ -40,9 +43,28 @@ class Authentication extends _$Authentication {
     }
   }
 
+  Future<void> verifyEmail() async {
+    try {
+      await EmailVerificationUsecase(
+          repository: ref.watch(authRepositoryProvider))();
+    } on BaseException catch (e) {
+      Future.sync(() => SnackbarUtils.showMessage(context, e.message));
+    }
+  }
+
   Future<void> logout() async {
     try {
       await LogoutUsecase(repository: ref.watch(authRepositoryProvider))();
+      Future.sync(() => context.go(LoginPage.routePath));
+    } on BaseException catch (e) {
+      Future.sync(() => SnackbarUtils.showMessage(context, e.message));
+    }
+  }
+
+  Future<void> resetPasswordbyemail() async {
+    try {
+      await ResetPasswordbyEmailUsecase(
+          repository: ref.watch(authRepositoryProvider))();
       Future.sync(() => context.go(LoginPage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));

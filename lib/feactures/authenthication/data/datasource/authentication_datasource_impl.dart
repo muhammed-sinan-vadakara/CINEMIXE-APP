@@ -6,6 +6,9 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'authentication_datasource_impl.g.dart';
 
 final class FirebaseAuthDataSourceImpl implements FirebaseAuthDataSource {
+  final FirebaseAuth _auth;
+  FirebaseAuthDataSourceImpl(this._auth);
+
   @override
   Future<void> createAccount(String email, String password) async {
     try {
@@ -46,9 +49,21 @@ final class FirebaseAuthDataSourceImpl implements FirebaseAuthDataSource {
   Future<void> logout() async {
     await FirebaseAuth.instance.signOut();
   }
+
+  @override
+  Future<void> emailVerfication() async {
+    await _auth.currentUser!.sendEmailVerification();
+  }
+
+  @override
+  Future<void> resetPassword(String email) async {
+    await FirebaseAuth.instance.sendPasswordResetEmail(
+      email: email,
+    );
+  }
 }
 
 @riverpod
 FirebaseAuthDataSource firebaseAuthDataSource(FirebaseAuthDataSourceRef ref) {
-  return FirebaseAuthDataSourceImpl();
+  return FirebaseAuthDataSourceImpl(FirebaseAuth.instance);
 }
