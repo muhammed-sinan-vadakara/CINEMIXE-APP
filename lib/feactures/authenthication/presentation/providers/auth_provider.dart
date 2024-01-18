@@ -2,6 +2,7 @@ import 'package:cinemixe/core/exceptions/base_exception.dart';
 import 'package:cinemixe/core/utils/snackbar_utils.dart';
 import 'package:cinemixe/feactures/authenthication/data/repositoies/auth_repository_impl.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/email_verification_usecase.dart';
+import 'package:cinemixe/feactures/authenthication/domain/usecases/google_verification_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/login_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/logout_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/reset_password_usecase.dart';
@@ -66,6 +67,16 @@ class Authentication extends _$Authentication {
       await ResetPasswordbyEmailUsecase(
           repository: ref.watch(authRepositoryProvider))();
       Future.sync(() => context.go(LoginPage.routePath));
+    } on BaseException catch (e) {
+      Future.sync(() => SnackbarUtils.showMessage(context, e.message));
+    }
+  }
+
+  Future<void> googleverification() async {
+    try {
+      await GoogleVerificationUsecase(
+          repository: ref.watch(authRepositoryProvider))();
+      Future.sync(() => context.go(HomePage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }

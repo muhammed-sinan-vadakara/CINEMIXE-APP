@@ -14,4 +14,8 @@ class Loginpagetext {
   static String? buttonlogin = "LOGIN";
   static String? buttonforgotpassword = "FORGOT PASSWORD";
   static String? buttoncreateaccount = "CREATE NEW ACCOUNT";
+
+  //phone Number
+  static String? phoneNumber = "Phone Number";
+  static String? phoneNumberlabel = "Enter your Phone Number";
 }

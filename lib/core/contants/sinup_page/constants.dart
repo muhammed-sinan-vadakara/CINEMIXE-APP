@@ -4,24 +4,30 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'constants.g.dart';
 
 final class SignupPageConstants {
+  //phone Number
+
+  final phoneNumber = "Phone Number";
+  final phoneNumberlabel = "Enter your Phone Number";
   //login page genaral texts
-  static String? pageTittle = "CREATE YOUR ACCOUNT";
-  static String? copyRigthText = "©️copyrigth by RASS MEDIA";
+  final pageTittle = "CREATE YOUR ACCOUNT";
+  final copyRigthText = "©️copyrigth by RASS MEDIA";
   //login page text feild hint text
-  static String? textfliedemail = "EMAIL";
-  static String? textfliedpassword = "PASSWORD";
-  static String? textfliedphone = "Enter Your Phone Number";
+  final textfliedemail = "EMAIL";
+  final textfliedpassword = "PASSWORD";
+  final textfliedphone = "Enter Your Phone Number";
 
   //login page text feild icons
-  static Widget? emailprefixicon = const Icon(Icons.email);
-  static Widget? passwordprefixicon = const Icon(Icons.fingerprint);
-  static Widget? passwordsuffixicon = const Icon(Icons.remove_red_eye_sharp);
-  static Widget? phoneprefixicon = const Icon(Icons.phone);
+  final emailprefixicon = const Icon(Icons.email);
+  final passwordprefixicon = const Icon(Icons.fingerprint);
+  final passwordsuffixicon = const Icon(Icons.remove_red_eye_sharp);
+  final phoneprefixicon = const Icon(Icons.phone);
+  final phonesuffixicon = const Icon(Icons.phone);
 
   //login page buttons
-  static String? buttonsignup = "SIGNUP";
-  static String? buttonforgotpassword = "FORGOT PASSWORD";
-  static String? buttonalreadylogin = "Alerady login";
+  final buttonsignup = "SIGNUP";
+  final buttongoogle = "GOOGLE";
+  final buttonforgotpassword = "FORGOT PASSWORD";
+  final buttonalreadylogin = "Alerady login";
 
   //sir code
   final txtHomeTitle = 'Home';

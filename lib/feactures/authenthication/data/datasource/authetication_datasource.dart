@@ -5,10 +5,10 @@ abstract class FirebaseAuthDataSource {
   Future<void> logout();
   Future<void> emailChange();
   Future<void> emailVerfication();
-  Future<void> phoneNumberChange();
+  Future<void> phoneNumberChange(String phoneNumber);
   Future<void> googleverification();
   Future<void> fasebookVerification();
-  Future<void> phoneNumberVerification();
+  Future<void> phoneNumberVerification(String phoneNumber);
 }
 
 

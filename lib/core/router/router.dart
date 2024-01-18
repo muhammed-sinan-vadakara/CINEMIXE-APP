@@ -3,7 +3,6 @@ import 'package:cinemixe/feactures/authenthication/presentation/pages/home_page.
 import 'package:cinemixe/feactures/authenthication/presentation/pages/login_page.dart';
 import 'package:cinemixe/feactures/authenthication/presentation/pages/sinup_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

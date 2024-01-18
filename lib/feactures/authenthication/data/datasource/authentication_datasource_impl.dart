@@ -1,6 +1,8 @@
 import 'package:cinemixe/core/exceptions/authentication/auth_failed_exception.dart';
+import 'package:cinemixe/core/exceptions/authentication/invalid_credentials_exception.dart';
 import 'package:cinemixe/feactures/authenthication/data/datasource/authetication_datasource.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'authentication_datasource_impl.g.dart';
@@ -61,6 +63,34 @@ final class FirebaseAuthDataSourceImpl implements FirebaseAuthDataSource {
       email: email,
     );
   }
+
+  @override
+  Future<void> googleverification() async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+      await FirebaseAuth.instance.signInWithCredential(credential);
+    } on Exception {
+      throw InvalidCredentialsException();
+    }
+  }
+
+  @override
+  Future<void> fasebookVerification() async {}
+
+  @override
+  Future<void> phoneNumberVerification(String phoneNumber) async {}
+
+  @override
+  Future<void> emailChange() async {}
+
+  @override
+  Future<void> phoneNumberChange(String phoneNumber) async {}
 }
 
 @riverpod

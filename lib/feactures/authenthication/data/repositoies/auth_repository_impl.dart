@@ -33,6 +33,11 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> resetPasswordbyemail(String email) async {
     await datasource.resetPassword(email);
   }
+
+  @override
+  Future<void> googleverifications() async {
+    await datasource.googleverification();
+  }
 }
 
 @riverpod

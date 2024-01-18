@@ -7,12 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:lottie/lottie.dart';
 
 class SignupPage extends HookConsumerWidget {
   static const routePath = '/signup';
   const SignupPage({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final phoneNumberController = useTextEditingController();
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
     final constants = ref.watch(signupPageConstantsProvider);
@@ -25,32 +27,59 @@ class SignupPage extends HookConsumerWidget {
               icon: const Icon(Icons.login))
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
+      body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(constants.txtEmailLabel),
-            const SizedBox(height: 8),
-            TextFieldWidget(
-                hinttText: Loginpagetext.textfliedemail,
-                prefixxIcon: Loginpagetext.emailprefixicon,
-                controller: emailController),
-            const SizedBox(height: 24),
-            Text(constants.txtPasswordLabel),
-            const SizedBox(height: 8),
-            TextFieldWidget(
-                hinttText: Loginpagetext.textfliedpassword,
-                prefixxIcon: Loginpagetext.passwordprefixicon,
-                suffixxIcon: Loginpagetext.passwordsuffixicon,
-                controller: passwordController),
-            const SizedBox(height: 24),
-            TextButton(
-              onPressed: () => ref
-                  .read(authenticationProvider(context).notifier)
-                  .signup(emailController.text, passwordController.text),
-              child: Text(constants.txtSignupBtnLabel),
-            )
+            Center(
+              child: Container(
+                  height: 150,
+                  width: 300,
+                  child: Lottie.asset("assets/animations/signuppage.json",
+                      fit: BoxFit.cover)),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(constants.txtEmailLabel),
+                  const SizedBox(height: 8),
+                  TextFieldWidget(
+                      hinttText: Loginpagetext.textfliedemail,
+                      prefixxIcon: Loginpagetext.emailprefixicon,
+                      controller: emailController),
+                  const SizedBox(height: 24),
+                  Text(constants.phoneNumber),
+                  const SizedBox(height: 8),
+                  TextFieldWidget(
+                      hinttText: constants.phoneNumberlabel,
+                      prefixxIcon: constants.phoneprefixicon,
+                      controller: phoneNumberController),
+                  const SizedBox(height: 24),
+                  Text(constants.txtPasswordPlaceholder),
+                  const SizedBox(height: 8),
+                  TextFieldWidget(
+                      hinttText: Loginpagetext.textfliedpassword,
+                      prefixxIcon: Loginpagetext.passwordprefixicon,
+                      suffixxIcon: Loginpagetext.passwordsuffixicon,
+                      controller: passwordController),
+                  const SizedBox(height: 24),
+                  TextButton(
+                    onPressed: () => ref
+                        .read(authenticationProvider(context).notifier)
+                        .signup(emailController.text, passwordController.text),
+                    child: Text(constants.txtSignupBtnLabel),
+                  ),
+                  const SizedBox(height: 24),
+                  TextButton(
+                    onPressed: () => ref
+                        .read(authenticationProvider(context).notifier)
+                        .googleverification(),
+                    child: const Text("GOOGLE"),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
