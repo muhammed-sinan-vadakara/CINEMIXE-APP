@@ -38,6 +38,11 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> googleverifications() async {
     await datasource.googleverification();
   }
+
+  @override
+  Future<void> phoneNumberVerificationbyOtp(String phoneNumber) async {
+    await datasource.phoneNumberVerification(phoneNumber);
+  }
 }
 
 @riverpod

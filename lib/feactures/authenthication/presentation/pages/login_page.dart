@@ -29,47 +29,53 @@ class LoginPage extends HookConsumerWidget {
               icon: const Icon(Icons.account_box))
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(constants.txtEmailLabel),
-            const SizedBox(height: 8),
-            TextFieldWidget(
-                hinttText: Loginpagetext.textfliedemail,
-                prefixxIcon: Loginpagetext.emailprefixicon,
-                controller: emailController),
-            const SizedBox(height: 24),
-            Text(constants.txtPasswordLabel),
-            const SizedBox(height: 8),
-            TextFieldWidget(
-                hinttText: Loginpagetext.textfliedpassword,
-                prefixxIcon: Loginpagetext.passwordprefixicon,
-                suffixxIcon: Loginpagetext.passwordsuffixicon,
-                controller: passwordController),
-            const SizedBox(height: 24),
-            TextButton(
-                onPressed: () => context.go(EmailVerificationScreen.routePath),
-                child: const Text("Email verification")),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () => ref
-                  .read(authenticationProvider(context).notifier)
-                  .login(emailController.text, passwordController.text),
-              child: Text(constants.txtLoginTitle),
-            ),
-            SizedBox(
-              height: AppTheme.of(context).spaces.space_400,
-            ),
-            TextButton(
-                onPressed: () {
-                  ref
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(constants.txtEmailLabel),
+                const SizedBox(height: 8),
+                TextFieldWidget(
+                    hinttText: Loginpagetext.textfliedemail,
+                    prefixxIcon: Loginpagetext.emailprefixicon,
+                    controller: emailController),
+                const SizedBox(height: 24),
+                Text(constants.txtPasswordLabel),
+                const SizedBox(height: 8),
+                TextFieldWidget(
+                    hinttText: Loginpagetext.textfliedpassword,
+                    prefixxIcon: Loginpagetext.passwordprefixicon,
+                    suffixxIcon: Loginpagetext.passwordsuffixicon,
+                    controller: passwordController),
+                const SizedBox(height: 24),
+                TextButton(
+                    onPressed: () =>
+                        context.go(EmailVerificationScreen.routePath),
+                    child: const Text("Email verification")),
+                const SizedBox(height: 24),
+                ElevatedButton(
+                  onPressed: () => ref
                       .read(authenticationProvider(context).notifier)
-                      .resetPasswordbyemail();
-                },
-                child: Text("reset Password"))
-          ],
+                      .login(emailController.text, passwordController.text),
+                  child: Text(constants.txtLoginTitle),
+                ),
+                SizedBox(
+                  height: AppTheme.of(context).spaces.space_400,
+                ),
+                TextButton(
+                    onPressed: () {
+                      ref
+                          .read(authenticationProvider(context).notifier)
+                          .resetPasswordbyemail(emailController.text);
+                    },
+                    child: const Text("reset Password"))
+              ],
+            ),
+          ),
         ),
       ),
     );

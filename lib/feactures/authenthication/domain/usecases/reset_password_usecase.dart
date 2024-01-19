@@ -5,9 +5,9 @@ final class ResetPasswordbyEmailUsecase {
   final AuthRepository repository;
   ResetPasswordbyEmailUsecase({required this.repository});
 
-  Future<void> call() async {
+  Future<void> call(String email) async {
     try {
-      await repository.logout();
+      await repository.resetPasswordbyemail(email);
     } on Exception {
       throw AuthenticationFailedException('Cannot send the reset password');
     }

@@ -84,7 +84,15 @@ final class FirebaseAuthDataSourceImpl implements FirebaseAuthDataSource {
   Future<void> fasebookVerification() async {}
 
   @override
-  Future<void> phoneNumberVerification(String phoneNumber) async {}
+  Future<void> phoneNumberVerification(String phoneNumber) async {
+    await FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: phoneNumber,
+      verificationCompleted: (PhoneAuthCredential credential) {},
+      verificationFailed: (FirebaseAuthException e) {},
+      codeSent: (String verificationId, int? resendToken) {},
+      codeAutoRetrievalTimeout: (String verificationId) {},
+    );
+  }
 
   @override
   Future<void> emailChange() async {}

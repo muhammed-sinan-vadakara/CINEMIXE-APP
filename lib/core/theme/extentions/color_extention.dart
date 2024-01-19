@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 class AppColorExtension extends ThemeExtension<AppColorExtension> {
@@ -8,6 +10,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
   final Color textSubtle;
   final Color textSubtlest;
   final Color backgroundDanger;
+  final Color normaltext;
 
   AppColorExtension({
     required this.primary,
@@ -17,6 +20,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
     required this.textSubtle,
     required this.textSubtlest,
     required this.backgroundDanger,
+    required this.normaltext,
   });
 
   @override
@@ -37,6 +41,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
       textSubtle: textSubtle ?? this.textSubtle,
       textSubtlest: textSubtlest ?? this.textSubtlest,
       backgroundDanger: backgroundDanger ?? this.backgroundDanger,
+      normaltext: normaltext ?? this.normaltext,
     );
   }
 
@@ -56,6 +61,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
       textSubtlest: Color.lerp(textSubtlest, other.textSubtlest, t)!,
       backgroundDanger:
           Color.lerp(backgroundDanger, other.backgroundDanger, t)!,
+      normaltext: Color.lerp(normaltext, other.normaltext, t)!,
     );
   }
 }

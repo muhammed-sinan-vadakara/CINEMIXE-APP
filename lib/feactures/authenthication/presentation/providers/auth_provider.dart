@@ -5,6 +5,7 @@ import 'package:cinemixe/feactures/authenthication/domain/usecases/email_verific
 import 'package:cinemixe/feactures/authenthication/domain/usecases/google_verification_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/login_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/logout_usecase.dart';
+import 'package:cinemixe/feactures/authenthication/domain/usecases/phone_number_verification_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/reset_password_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/signup_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/presentation/pages/home_page.dart';
@@ -62,11 +63,21 @@ class Authentication extends _$Authentication {
     }
   }
 
-  Future<void> resetPasswordbyemail() async {
+  Future<void> resetPasswordbyemail(String email) async {
     try {
       await ResetPasswordbyEmailUsecase(
-          repository: ref.watch(authRepositoryProvider))();
+          repository: ref.watch(authRepositoryProvider))(email);
       Future.sync(() => context.go(LoginPage.routePath));
+    } on BaseException catch (e) {
+      Future.sync(() => SnackbarUtils.showMessage(context, e.message));
+    }
+  }
+
+   Future<void> phoneNumberVerfication(String phoneNumber) async {
+    try {
+      await PhoneNumberVerificationUsecase(
+          repository: ref.watch(authRepositoryProvider))(phoneNumber);
+      Future.sync(() => context.go(HomePage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }

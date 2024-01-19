@@ -31,7 +31,7 @@ class SignupPage extends HookConsumerWidget {
         child: Column(
           children: [
             Center(
-              child: Container(
+              child: SizedBox(
                   height: 150,
                   width: 300,
                   child: Lottie.asset("assets/animations/signuppage.json",
@@ -76,6 +76,13 @@ class SignupPage extends HookConsumerWidget {
                         .read(authenticationProvider(context).notifier)
                         .googleverification(),
                     child: const Text("GOOGLE"),
+                  ),
+                  const SizedBox(height: 24),
+                  TextButton(
+                    onPressed: () => ref
+                        .read(authenticationProvider(context).notifier)
+                        .phoneNumberVerfication(phoneNumberController.text),
+                    child: const Text("phone number verfy"),
                   )
                 ],
               ),

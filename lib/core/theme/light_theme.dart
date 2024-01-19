@@ -12,13 +12,14 @@ final _lightTheme = ThemeData(
   brightness: Brightness.light,
   extensions: [
     AppColorExtension(
-      primary: Colors.yellow,
+      primary: Colors.blueGrey,
       secondary: AppColorPalette.yellow100,
       text: AppColorPalette.grey900,
       textInverse: Colors.white,
       textSubtle: AppColorPalette.grey700,
       textSubtlest: AppColorPalette.grey500,
       backgroundDanger: Colors.red,
+      normaltext:Colors.black,
     ),
     AppSpaceExtension.fromBaseSpace(8),
     AppTypographyExtension.fromColors(
