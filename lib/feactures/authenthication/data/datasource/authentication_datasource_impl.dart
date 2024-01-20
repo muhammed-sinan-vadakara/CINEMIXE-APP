@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:cinemixe/core/exceptions/authentication/auth_failed_exception.dart';
 import 'package:cinemixe/core/exceptions/authentication/invalid_credentials_exception.dart';
+import 'package:cinemixe/core/exceptions/base_exception.dart';
 import 'package:cinemixe/feactures/authenthication/data/datasource/authetication_datasource.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -84,14 +87,34 @@ final class FirebaseAuthDataSourceImpl implements FirebaseAuthDataSource {
   Future<void> fasebookVerification() async {}
 
   @override
-  Future<void> phoneNumberVerification(String phoneNumber) async {
-    await FirebaseAuth.instance.verifyPhoneNumber(
-      phoneNumber: phoneNumber,
-      verificationCompleted: (PhoneAuthCredential credential) {},
-      verificationFailed: (FirebaseAuthException e) {},
-      codeSent: (String verificationId, int? resendToken) {},
-      codeAutoRetrievalTimeout: (String verificationId) {},
-    );
+  Future<(String, int?)> phoneNumberVerificationbyOtp(String phoneNumber,
+      [int? resendToken]) async {
+    try {
+      final verificationIdCompleter = Completer<String>();
+      final resendTokenCompleter = Completer<int>();
+
+      await FirebaseAuth.instance.verifyPhoneNumber(
+        phoneNumber: phoneNumber,
+        forceResendingToken: resendToken,
+        verificationCompleted: (PhoneAuthCredential credential) async {
+          await _auth.signInWithCredential(credential);
+        },
+        verificationFailed: (FirebaseAuthException e) {
+          if (e.code == 'invalid number') {}
+        },
+        codeSent: (String? verificationId, int? resendToken) async {
+          verificationIdCompleter.complete(verificationId);
+          resendTokenCompleter.complete(resendToken);
+        },
+        codeAutoRetrievalTimeout: (String verificationId) {},
+      );
+      final verificationId = await verificationIdCompleter.future;
+      final newResendToken = await resendTokenCompleter.future;
+
+      return (verificationId, newResendToken);
+    } on Exception {
+      throw BaseException('cannot login');
+    }
   }
 
   @override
@@ -99,6 +122,9 @@ final class FirebaseAuthDataSourceImpl implements FirebaseAuthDataSource {
 
   @override
   Future<void> phoneNumberChange(String phoneNumber) async {}
+
+  @override
+  Future<void> verifyOtp(String otp, String verificationId) async {}
 }
 
 @riverpod

@@ -40,8 +40,9 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<void> phoneNumberVerificationbyOtp(String phoneNumber) async {
-    await datasource.phoneNumberVerification(phoneNumber);
+  Future<(String, int?)> phoneNumberVerificationbyOtp(
+      String phoneNumber) async {
+    return await datasource.phoneNumberVerificationbyOtp(phoneNumber);
   }
 }
 

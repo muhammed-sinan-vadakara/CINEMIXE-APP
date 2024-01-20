@@ -41,7 +41,7 @@ class AppColorExtension extends ThemeExtension<AppColorExtension> {
       textSubtle: textSubtle ?? this.textSubtle,
       textSubtlest: textSubtlest ?? this.textSubtlest,
       backgroundDanger: backgroundDanger ?? this.backgroundDanger,
-      normaltext: normaltext ?? this.normaltext,
+      normaltext: normaltext,
     );
   }
 

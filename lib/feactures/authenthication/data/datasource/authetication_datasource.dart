@@ -8,7 +8,8 @@ abstract class FirebaseAuthDataSource {
   Future<void> phoneNumberChange(String phoneNumber);
   Future<void> googleverification();
   Future<void> fasebookVerification();
-  Future<void> phoneNumberVerification(String phoneNumber);
+  Future<(String, int?)> phoneNumberVerificationbyOtp(String phoneNumber);
+  Future<void> verifyOtp(String verificationId, String otp);
 }
 
 

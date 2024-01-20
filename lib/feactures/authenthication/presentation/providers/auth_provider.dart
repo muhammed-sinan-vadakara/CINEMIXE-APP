@@ -8,8 +8,9 @@ import 'package:cinemixe/feactures/authenthication/domain/usecases/logout_usecas
 import 'package:cinemixe/feactures/authenthication/domain/usecases/phone_number_verification_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/reset_password_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/signup_usecase.dart';
-import 'package:cinemixe/feactures/authenthication/presentation/pages/home_page.dart';
 import 'package:cinemixe/feactures/authenthication/presentation/pages/login_page.dart';
+import 'package:cinemixe/feactures/authenthication/presentation/pages/otp_checking_page.dart';
+import 'package:cinemixe/feactures/home/presentation/pages/homepage.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
@@ -29,7 +30,7 @@ class Authentication extends _$Authentication {
       await SignupUsecase(repository: ref.watch(authRepositoryProvider))(
           email, password);
       await verifyEmail();
-      Future.sync(() => context.go(HomePage.routePath));
+      Future.sync(() => context.go(HomeApiServicePage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }
@@ -39,7 +40,7 @@ class Authentication extends _$Authentication {
     try {
       await LoginUsecase(repository: ref.watch(authRepositoryProvider))(
           email, password);
-      Future.sync(() => context.go(HomePage.routePath));
+      Future.sync(() => context.go(HomeApiServicePage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }
@@ -73,11 +74,11 @@ class Authentication extends _$Authentication {
     }
   }
 
-   Future<void> phoneNumberVerfication(String phoneNumber) async {
+  Future<void> phoneNumberVerfication(String phoneNumber) async {
     try {
       await PhoneNumberVerificationUsecase(
           repository: ref.watch(authRepositoryProvider))(phoneNumber);
-      Future.sync(() => context.go(HomePage.routePath));
+      Future.sync(() => context.go(OtpCheckingPage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }
@@ -87,7 +88,7 @@ class Authentication extends _$Authentication {
     try {
       await GoogleVerificationUsecase(
           repository: ref.watch(authRepositoryProvider))();
-      Future.sync(() => context.go(HomePage.routePath));
+      Future.sync(() => context.go(HomeApiServicePage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }
