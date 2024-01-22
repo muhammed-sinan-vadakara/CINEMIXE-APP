@@ -3,9 +3,8 @@ import 'package:cinemixe/feactures/home/presentation/providers/home_apiservice_p
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-const imagePath = 'https://image.tmdb.org/t/p/original';
-
 class HomeApiServicePage extends ConsumerWidget {
+  final imagePath = 'https://image.tmdb.org/t/p/w500/';
   static const routePath = "/";
   const HomeApiServicePage({super.key});
 

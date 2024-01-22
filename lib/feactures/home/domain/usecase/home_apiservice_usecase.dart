@@ -10,7 +10,7 @@ final class GetMoviesUseCase {
     try {
       return await repository.getMovies();
     } catch (e) {
-      throw GetMovieException("Error While FEtching Movies");
+      throw  GetMovieException("Error While Fetching Movies");
     }
   }
 }
