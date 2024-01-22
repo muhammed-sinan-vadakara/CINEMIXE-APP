@@ -10,9 +10,8 @@ part 'home_apiservice_provider.g.dart';
 class HomeApiService extends _$HomeApiService {
   late final HomeApiServiceRepository repository;
   @override
-  Future<List<HomeApiServiceEntity>> build() async{
-    repository = ref.watch(homeApiServiceRepositoryProvider);
-    return GetMoviesUseCase(repository: repository)();
+  Future<List<HomeApiServiceEntity>> build() async {
+    return HomeApiServiceUseCase(
+        repository: ref.watch(homeApiServiceRepositoryProvider))();
   }
-
 }

@@ -10,7 +10,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'router.g.dart';
 
 final _router = GoRouter(
-  initialLocation: LoginPage.routePath,
+  initialLocation: HomeApiServicePage.routePath,
   routes: [
     GoRoute(
       path: HomeApiServicePage.routePath,
