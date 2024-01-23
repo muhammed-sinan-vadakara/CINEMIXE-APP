@@ -8,12 +8,12 @@ part 'home_apiservice_datasource_impl.g.dart';
 
 class HomeApiServiceDataSourceImpl implements HomeApiServiceDataSource {
   static final dio = Dio();
-  final token = ApiConstants.token;
+  final token = HomeApiServicetokenConstants().token;
   @override
   Future<HomeApiServiceModel> getMovies() async {
     dio.options.headers['Authorization'] = 'Bearer $token';
     Response response = await dio.get(
-        "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&page=1");
+        "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc");
 
     return HomeApiServiceModel.fromJson(response.data);
   }

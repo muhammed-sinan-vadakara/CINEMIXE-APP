@@ -11,7 +11,7 @@ class HomeApiService extends _$HomeApiService {
   late final HomeApiServiceRepository repository;
   @override
   Future<List<HomeApiServiceEntity>> build() async {
-    return HomeApiServiceUseCase(
-        repository: ref.watch(homeApiServiceRepositoryProvider))();
+    repository = ref.watch(homeApiServiceRepositoryProvider);
+    return HomeApiServiceUseCase(repository: repository)();
   }
 }

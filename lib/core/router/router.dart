@@ -2,7 +2,9 @@ import 'package:cinemixe/feactures/authenthication/presentation/pages/email_veri
 import 'package:cinemixe/feactures/authenthication/presentation/pages/login_page.dart';
 import 'package:cinemixe/feactures/authenthication/presentation/pages/otp_checking_page.dart';
 import 'package:cinemixe/feactures/authenthication/presentation/pages/sinup_page.dart';
+import 'package:cinemixe/feactures/home/domain/entities/home_apiservice_entity.dart';
 import 'package:cinemixe/feactures/home/presentation/pages/homepage.dart';
+import 'package:cinemixe/feactures/home/presentation/pages/overviewpage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -14,7 +16,9 @@ final _router = GoRouter(
   routes: [
     GoRoute(
       path: HomeApiServicePage.routePath,
-      builder: (context, state) => const HomeApiServicePage(),
+      builder: (context, state) => HomeApiServicePage(
+        
+      ),
       redirect: (context, state) {
         final user = FirebaseAuth.instance.currentUser;
         if (user == null || !user.emailVerified) {
@@ -23,6 +27,7 @@ final _router = GoRouter(
         return null;
       },
     ),
+    GoRoute(path: OverViewPage.routhpath,builder: (context, state) =>  OverViewPage(entity: state.extra as HomeApiServiceEntity),),
     GoRoute(
       path: SignupPage.routePath,
       builder: (context, state) => const SignupPage(),

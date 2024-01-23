@@ -12,17 +12,18 @@ class HomeApiServiceRepositoryImpl implements HomeApiServiceRepository {
 
   @override
   Future<List<HomeApiServiceEntity>> getMovies() async {
-    final ds = await dataSource.getMovies();
+    final data = await dataSource.getMovies();
 
     late List<HomeApiServiceEntity> results;
     results = [
-      for (final result in ds.results)
+      for (final result in data.results)
         HomeApiServiceEntity(
             originalTitle: result.originalTitle,
             overview: result.overview,
             posterPath: result.posterPath,
             title: result.title,
-            voteAverage: result.voteAverage)
+            voteAverage: result.voteAverage
+            )
     ];
     return results;
   }
