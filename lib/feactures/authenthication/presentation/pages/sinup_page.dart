@@ -66,22 +66,22 @@ class SignupPage extends HookConsumerWidget {
                   const SizedBox(height: 24),
                   TextButton(
                     onPressed: () => ref
-                        .read(authenticationProvider(context).notifier)
-                        .signup(emailController.text, passwordController.text),
+                        .read(authenticationProvider.notifier)
+                        .signup(context,emailController.text, passwordController.text),
                     child: Text(constants.txtSignupBtnLabel),
                   ),
                   const SizedBox(height: 24),
                   TextButton(
                     onPressed: () => ref
-                        .read(authenticationProvider(context).notifier)
-                        .googleverification(),
+                        .read(authenticationProvider.notifier)
+                        .googleverification(context),
                     child: const Text("GOOGLE"),
                   ),
                   const SizedBox(height: 24),
                   TextButton(
                     onPressed: () => ref
-                        .read(authenticationProvider(context).notifier)
-                        .phoneNumberVerfication(phoneNumberController.text),
+                        .read(authenticationProvider.notifier)
+                        .phoneNumberVerfication(context,phoneNumberController.text),
                     child: const Text("phone number verfy"),
                   )
                 ],

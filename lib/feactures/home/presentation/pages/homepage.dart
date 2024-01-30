@@ -1,8 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cinemixe/core/contants/home/home_apiservice_constants.dart';
 import 'package:cinemixe/core/contants/home/homepage_constants.dart';
+import 'package:cinemixe/feactures/home/presentation/pages/favarite_page.dart';
 // import 'package:cinemixe/core/theme/app_theme.dart';
-import 'package:cinemixe/feactures/authenthication/presentation/pages/login_page.dart';
+// import 'package:cinemixe/feactures/authenthication/presentation/pages/login_page.dart';
 import 'package:cinemixe/feactures/home/presentation/pages/overviewpage.dart';
 import 'package:cinemixe/feactures/home/presentation/providers/home_apiservice_provider.dart';
 import 'package:cinemixe/feactures/home/presentation/widgets/listview_widget.dart';
@@ -42,7 +43,12 @@ class HomeApiServicePage extends ConsumerWidget {
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 20),
-              child: constants.personIcon,
+              child: IconButton(
+                icon: constants.personIcon,
+                onPressed: () {
+                  context.push(Testing.routePath);
+                },
+              ),
             ),
           ],
         ),
@@ -76,7 +82,6 @@ class HomeApiServicePage extends ConsumerWidget {
                       child: Container(
                         width: MediaQuery.sizeOf(context).width,
                         height: MediaQuery.sizeOf(context).height / 2.5,
-                        color: Colors.grey,
                         child: ListViewWidget(
                             value: value,
                             imagePath: imagePath,

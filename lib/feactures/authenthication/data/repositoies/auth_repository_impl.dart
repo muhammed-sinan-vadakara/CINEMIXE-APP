@@ -44,6 +44,11 @@ class AuthRepositoryImpl implements AuthRepository {
       String phoneNumber) async {
     return await datasource.phoneNumberVerificationbyOtp(phoneNumber);
   }
+
+  @override
+  Future<void> verifyPhoneOtp(String verificationId, String otp) async {
+    await datasource.verifyOtp(verificationId, otp);
+  }
 }
 
 @riverpod

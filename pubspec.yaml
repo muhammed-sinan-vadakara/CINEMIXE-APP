@@ -51,6 +51,9 @@ dependencies:
   firebase_messaging: ^14.7.10
   firebase_database: ^10.4.0
   carousel_slider: ^4.2.1
+  animated_notch_bottom_bar: ^1.0.1
+  firebase_storage: ^11.6.0
+  cloud_firestore: ^4.14.0
 
 dev_dependencies:
   flutter_test:

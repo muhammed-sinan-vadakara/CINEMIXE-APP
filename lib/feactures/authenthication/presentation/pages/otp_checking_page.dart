@@ -1,9 +1,8 @@
 import 'package:cinemixe/core/contants/otp_checker_page/constants.dart';
 import 'package:cinemixe/core/widgets/text_flied.dart';
-import 'package:cinemixe/feactures/home/presentation/pages/homepage.dart';
+import 'package:cinemixe/feactures/authenthication/presentation/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_hooks/flutter_hooks.dart'; 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class OtpCheckingPage extends HookConsumerWidget {
@@ -30,7 +29,9 @@ class OtpCheckingPage extends HookConsumerWidget {
                   prefixxIcon: constants.prefixxIcon,
                   suffixxIcon: constants.suffixxIcon),
               ElevatedButton(
-                  onPressed: () => GoRoute(path: HomeApiServicePage.routePath),
+                  onPressed: () => ref
+                      .watch(authenticationProvider.notifier)
+                      .verifyOtp(context, otpVerificationController.text),
                   child: Text(constants.buttontext))
             ],
           ),

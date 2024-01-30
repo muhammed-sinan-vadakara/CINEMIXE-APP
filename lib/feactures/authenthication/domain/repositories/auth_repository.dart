@@ -6,6 +6,7 @@ abstract class AuthRepository {
   Future<void> resetPasswordbyemail(String email);
   Future<void> googleverifications();
   Future<(String,int?)> phoneNumberVerificationbyOtp(String phoneNumber);
+  Future<void> verifyPhoneOtp(String verificationId, String otp);
 }
 
 

@@ -59,8 +59,9 @@ class LoginPage extends HookConsumerWidget {
                 const SizedBox(height: 24),
                 ElevatedButton(
                   onPressed: () => ref
-                      .read(authenticationProvider(context).notifier)
-                      .login(emailController.text, passwordController.text),
+                      .read(authenticationProvider.notifier)
+                      .login(context, emailController.text,
+                          passwordController.text),
                   child: Text(constants.txtLoginTitle),
                 ),
                 SizedBox(
@@ -69,8 +70,8 @@ class LoginPage extends HookConsumerWidget {
                 TextButton(
                     onPressed: () {
                       ref
-                          .read(authenticationProvider(context).notifier)
-                          .resetPasswordbyemail(emailController.text);
+                          .read(authenticationProvider.notifier)
+                          .resetPasswordbyemail(emailController.text, context);
                     },
                     child: const Text("reset Password"))
               ],

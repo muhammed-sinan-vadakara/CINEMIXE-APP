@@ -1,15 +1,18 @@
 import 'package:cinemixe/core/exceptions/base_exception.dart';
 import 'package:cinemixe/core/utils/snackbar_utils.dart';
 import 'package:cinemixe/feactures/authenthication/data/repositoies/auth_repository_impl.dart';
+import 'package:cinemixe/feactures/authenthication/domain/repositories/auth_repository.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/email_verification_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/google_verification_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/login_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/logout_usecase.dart';
+import 'package:cinemixe/feactures/authenthication/domain/usecases/otp_verification_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/phone_number_verification_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/reset_password_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/domain/usecases/signup_usecase.dart';
 import 'package:cinemixe/feactures/authenthication/presentation/pages/login_page.dart';
 import 'package:cinemixe/feactures/authenthication/presentation/pages/otp_checking_page.dart';
+import 'package:cinemixe/feactures/authenthication/presentation/providers/authentication_state_provider.dart';
 import 'package:cinemixe/feactures/home/presentation/pages/homepage.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
@@ -20,23 +23,27 @@ part 'auth_provider.g.dart';
 
 @riverpod
 class Authentication extends _$Authentication {
+  late final AuthRepository repository;
   @override
-  void build(BuildContext context) {
-    this.context = context;
+  AuthenticationState build() {
+    repository = ref.read(authRepositoryProvider);
+    return AuthenticationState(verificationId: '', resendToken: null);
   }
 
-  Future<void> signup(String email, String password) async {
+  Future<void> signup(
+      BuildContext context, String email, String password) async {
     try {
       await SignupUsecase(repository: ref.watch(authRepositoryProvider))(
           email, password);
-      await verifyEmail();
+      await verifyEmail(context);
       Future.sync(() => context.go(HomeApiServicePage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }
   }
 
-  Future<void> login(String email, String password) async {
+  Future<void> login(
+      BuildContext context, String email, String password) async {
     try {
       await LoginUsecase(repository: ref.watch(authRepositoryProvider))(
           email, password);
@@ -46,7 +53,7 @@ class Authentication extends _$Authentication {
     }
   }
 
-  Future<void> verifyEmail() async {
+  Future<void> verifyEmail(BuildContext context) async {
     try {
       await EmailVerificationUsecase(
           repository: ref.watch(authRepositoryProvider))();
@@ -55,7 +62,7 @@ class Authentication extends _$Authentication {
     }
   }
 
-  Future<void> logout() async {
+  Future<void> logout(BuildContext context) async {
     try {
       await LogoutUsecase(repository: ref.watch(authRepositoryProvider))();
       Future.sync(() => context.go(LoginPage.routePath));
@@ -64,7 +71,7 @@ class Authentication extends _$Authentication {
     }
   }
 
-  Future<void> resetPasswordbyemail(String email) async {
+  Future<void> resetPasswordbyemail(String email, BuildContext context) async {
     try {
       await ResetPasswordbyEmailUsecase(
           repository: ref.watch(authRepositoryProvider))(email);
@@ -74,7 +81,8 @@ class Authentication extends _$Authentication {
     }
   }
 
-  Future<void> phoneNumberVerfication(String phoneNumber) async {
+  Future<void> phoneNumberVerfication(
+      BuildContext context, String phoneNumber) async {
     try {
       await PhoneNumberVerificationUsecase(
           repository: ref.watch(authRepositoryProvider))(phoneNumber);
@@ -83,8 +91,16 @@ class Authentication extends _$Authentication {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }
   }
+  Future<void> verifyOtp(BuildContext context, String otp) async {
+    try {
+      await VerifyOtpUsecase(repository: repository)(state.verificationId, otp);
+      Future.sync(() => context.go(HomeApiServicePage.routePath));
+    } on BaseException catch (e) {
+      Future.sync(() => SnackbarUtils.showMessage(context, e.message));
+    }
+  }
 
-  Future<void> googleverification() async {
+  Future<void> googleverification(BuildContext context) async {
     try {
       await GoogleVerificationUsecase(
           repository: ref.watch(authRepositoryProvider))();
