@@ -2,7 +2,7 @@ import 'package:cinemixe/core/contants/otp_checker_page/constants.dart';
 import 'package:cinemixe/core/widgets/text_flied.dart';
 import 'package:cinemixe/feactures/authenthication/presentation/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart'; 
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class OtpCheckingPage extends HookConsumerWidget {
@@ -11,7 +11,7 @@ class OtpCheckingPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final otpVerificationController = useTextEditingController();
+    final otpVerificationphoneController = useTextEditingController();
     final constants = ref.watch(otpcheckingpagetextProvider);
     return Scaffold(
       appBar: AppBar(
@@ -24,14 +24,14 @@ class OtpCheckingPage extends HookConsumerWidget {
             children: [
               Text(constants.heading),
               TextFieldWidget(
-                  controller: otpVerificationController,
+                  controller: otpVerificationphoneController,
                   hinttText: constants.hinttext,
                   prefixxIcon: constants.prefixxIcon,
                   suffixxIcon: constants.suffixxIcon),
               ElevatedButton(
                   onPressed: () => ref
-                      .watch(authenticationProvider.notifier)
-                      .verifyOtp(context, otpVerificationController.text),
+                      .read(authenticationProvider.notifier)
+                      .verifyOtp(context, otpVerificationphoneController.text),
                   child: Text(constants.buttontext))
             ],
           ),

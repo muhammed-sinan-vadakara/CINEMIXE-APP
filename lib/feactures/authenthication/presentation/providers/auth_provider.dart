@@ -21,7 +21,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class Authentication extends _$Authentication {
   late final AuthRepository repository;
   @override
@@ -33,7 +33,7 @@ class Authentication extends _$Authentication {
   Future<void> signup(
       BuildContext context, String email, String password) async {
     try {
-      await SignupUsecase(repository: ref.watch(authRepositoryProvider))(
+      await SignupUsecase(repository: ref.read(authRepositoryProvider))(
           email, password);
       await verifyEmail(context);
       Future.sync(() => context.go(HomeApiServicePage.routePath));
@@ -45,7 +45,7 @@ class Authentication extends _$Authentication {
   Future<void> login(
       BuildContext context, String email, String password) async {
     try {
-      await LoginUsecase(repository: ref.watch(authRepositoryProvider))(
+      await LoginUsecase(repository: ref.read(authRepositoryProvider))(
           email, password);
       Future.sync(() => context.go(HomeApiServicePage.routePath));
     } on BaseException catch (e) {
@@ -56,7 +56,7 @@ class Authentication extends _$Authentication {
   Future<void> verifyEmail(BuildContext context) async {
     try {
       await EmailVerificationUsecase(
-          repository: ref.watch(authRepositoryProvider))();
+          repository: ref.read(authRepositoryProvider))();
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }
@@ -64,7 +64,7 @@ class Authentication extends _$Authentication {
 
   Future<void> logout(BuildContext context) async {
     try {
-      await LogoutUsecase(repository: ref.watch(authRepositoryProvider))();
+      await LogoutUsecase(repository: ref.read(authRepositoryProvider))();
       Future.sync(() => context.go(LoginPage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
@@ -74,7 +74,7 @@ class Authentication extends _$Authentication {
   Future<void> resetPasswordbyemail(String email, BuildContext context) async {
     try {
       await ResetPasswordbyEmailUsecase(
-          repository: ref.watch(authRepositoryProvider))(email);
+          repository: ref.read(authRepositoryProvider))(email);
       Future.sync(() => context.go(LoginPage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
@@ -84,13 +84,17 @@ class Authentication extends _$Authentication {
   Future<void> phoneNumberVerfication(
       BuildContext context, String phoneNumber) async {
     try {
-      await PhoneNumberVerificationUsecase(
-          repository: ref.watch(authRepositoryProvider))(phoneNumber);
+      final verificationData = await PhoneNumberVerificationUsecase(
+          repository: ref.read(authRepositoryProvider))(phoneNumber);
+      state = AuthenticationState(
+          verificationId: verificationData.$1,
+          resendToken: verificationData.$2);
       Future.sync(() => context.go(OtpCheckingPage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
     }
   }
+
   Future<void> verifyOtp(BuildContext context, String otp) async {
     try {
       await VerifyOtpUsecase(repository: repository)(state.verificationId, otp);
@@ -103,7 +107,7 @@ class Authentication extends _$Authentication {
   Future<void> googleverification(BuildContext context) async {
     try {
       await GoogleVerificationUsecase(
-          repository: ref.watch(authRepositoryProvider))();
+          repository: ref.read(authRepositoryProvider))();
       Future.sync(() => context.go(HomeApiServicePage.routePath));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showMessage(context, e.message));
