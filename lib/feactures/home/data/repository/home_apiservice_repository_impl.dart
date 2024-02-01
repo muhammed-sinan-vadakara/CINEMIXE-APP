@@ -7,7 +7,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'home_apiservice_repository_impl.g.dart';
 
 class HomeApiServiceRepositoryImpl implements HomeApiServiceRepository {
-   final HomeApiServiceDataSource dataSource;
+  final HomeApiServiceDataSource dataSource;
   HomeApiServiceRepositoryImpl({required this.dataSource});
 
   @override
@@ -18,19 +18,23 @@ class HomeApiServiceRepositoryImpl implements HomeApiServiceRepository {
     results = [
       for (final result in data.results)
         HomeApiServiceEntity(
-            originalTitle: result.originalTitle,
-            overview: result.overview,
-            posterPath: result.posterPath,
-            title: result.title,
-            voteAverage: result.voteAverage
-            )
+          id: result.id.toString(),
+          originalTitle: result.originalTitle,
+          overview: result.overview,
+          posterPath: result.posterPath,
+           backdropPath: result.backdropPath,
+          title: result.title,
+          voteAverage: result.voteAverage,
+          releaseDate: result.releaseDate,
+        )
     ];
     return results;
   }
 }
 
-
 @riverpod
-HomeApiServiceRepository homeApiServiceRepository(HomeApiServiceRepositoryRef ref){
-  return HomeApiServiceRepositoryImpl(dataSource: ref.watch(homeApiServiceDataSourceProvider));
+HomeApiServiceRepository homeApiServiceRepository(
+    HomeApiServiceRepositoryRef ref) {
+  return HomeApiServiceRepositoryImpl(
+      dataSource: ref.watch(homeApiServiceDataSourceProvider));
 }

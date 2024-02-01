@@ -15,15 +15,15 @@ import 'package:go_router/go_router.dart';
 class HomeApiServicePage extends ConsumerWidget {
   static const routePath = '/';
   final imagePath = HomeApiServicetokenConstants().imagePath;
-  // final int? itemcount;
+  final int? itemcount;
 
   HomeApiServicePage({
-    super.key,
+    super.key,this.itemcount
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final apidata = ref.watch(homeApiServiceProvider);
+    final apidata = ref.watch(homeApiServiceProviderProvider);
     final constants = ref.watch(homePageConstantsProvider);
     return SafeArea(
         child: Scaffold(
@@ -34,8 +34,9 @@ class HomeApiServicePage extends ConsumerWidget {
           style: const TextStyle(color: Colors.white),
         ),
         leading: IconButton(
-            onPressed: () =>
-                ref.read(authenticationProvider.notifier).logout(context),
+            onPressed: () {
+              // context.push(FavaritePage.routePath);
+            },
             icon: const Icon(Icons.abc)),
         // constants.settingsIcon,
         centerTitle: true,
@@ -50,9 +51,8 @@ class HomeApiServicePage extends ConsumerWidget {
             padding: const EdgeInsets.only(right: 20),
             child: IconButton(
               icon: constants.personIcon,
-              onPressed: () {
-                context.push(Testing.routePath);
-              },
+              onPressed: () =>
+                  ref.read(authenticationProvider.notifier).logout(context),
             ),
           ),
         ],
@@ -64,21 +64,22 @@ class HomeApiServicePage extends ConsumerWidget {
                 SizedBox(
                     height: 100,
                     child: CarouselSlider.builder(
-                        itemCount: value.length,
+                        itemCount: value.getMovies.length,
                         itemBuilder: (context, index, realIndex) => InkWell(
                               child: Container(
                                 height: 100,
                                 width: 50,
                                 color: Colors.amber,
                                 child: Image.network(
-                                    '$imagePath${value[index].posterPath}'),
+                                    '$imagePath${value.getMovies[index].posterPath}'),
                               ),
                             ),
                         options: CarouselOptions(
                             height: 200,
                             autoPlay: true,
                             clipBehavior: Clip.antiAlias,
-                            autoPlayAnimationDuration: const Duration(seconds: 2)))),
+                            autoPlayAnimationDuration:
+                                const Duration(seconds: 2)))),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   child: ClipRRect(
@@ -87,7 +88,7 @@ class HomeApiServicePage extends ConsumerWidget {
                       width: MediaQuery.sizeOf(context).width,
                       height: MediaQuery.sizeOf(context).height / 2.5,
                       child: ListViewWidget(
-                          value: value,
+                          value: value.getMovies,
                           imagePath: imagePath,
                           height: 100,
                           height2: null,
@@ -107,7 +108,7 @@ class HomeApiServicePage extends ConsumerWidget {
                       height: 400,
                       color: const Color.fromARGB(255, 17, 6, 6),
                       child: ListView.builder(
-                        itemCount: value.length,
+                        itemCount: value.getMovies.length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           return Padding(
@@ -117,7 +118,7 @@ class HomeApiServicePage extends ConsumerWidget {
                               child: InkWell(
                                 onTap: () {
                                   context.push(OverViewPage.routhpath,
-                                      extra: value[index]);
+                                      extra: value.getMovies[index]);
                                 },
                                 child: Container(
                                   height: 300,
@@ -133,7 +134,7 @@ class HomeApiServicePage extends ConsumerWidget {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                           child: Image.network(
-                                            '$imagePath${value[index].posterPath}',
+                                            '$imagePath${value.getMovies[index].posterPath}',
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -145,7 +146,7 @@ class HomeApiServicePage extends ConsumerWidget {
                                         width: 250,
                                         child: Center(
                                           child: Text(
-                                            value[index].title,
+                                            value.getMovies[index].title,
                                             style: const TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 18),
@@ -174,7 +175,8 @@ class HomeApiServicePage extends ConsumerWidget {
           ),
         _ => const Center(child: CircularProgressIndicator()),
       },
-      bottomNavigationBar: Container(decoration: const BoxDecoration(),
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

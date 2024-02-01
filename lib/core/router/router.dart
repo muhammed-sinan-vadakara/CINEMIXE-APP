@@ -43,10 +43,10 @@ final _router = GoRouter(
       path: OtpCheckingPage.routePath,
       builder: (context, state) => const OtpCheckingPage(),
     ),
-    GoRoute(
-      path: Testing.routePath,
-      builder: (context, state) => const Testing(),
-    ),
+    // GoRoute(
+    //   path: FavaritePage.routePath,
+    //   builder: (context, state) => const FavaritePage(),
+    // ),
     GoRoute(
         path: EmailVerificationScreen.routePath,
         builder: (context, state) => const EmailVerificationScreen())
