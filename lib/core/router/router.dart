@@ -6,6 +6,7 @@ import 'package:cinemixe/feactures/home/domain/entities/home_apiservice_entity.d
 import 'package:cinemixe/feactures/home/presentation/pages/favarite_page.dart';
 import 'package:cinemixe/feactures/home/presentation/pages/homepage.dart';
 import 'package:cinemixe/feactures/home/presentation/pages/overviewpage.dart';
+import 'package:cinemixe/feactures/home/presentation/pages/search_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -43,10 +44,14 @@ final _router = GoRouter(
       path: OtpCheckingPage.routePath,
       builder: (context, state) => const OtpCheckingPage(),
     ),
-    // GoRoute(
-    //   path: FavaritePage.routePath,
-    //   builder: (context, state) => const FavaritePage(),
-    // ),
+    GoRoute(
+      path: FavouriteMoviesPage.routePath,
+      builder: (context, state) => const FavouriteMoviesPage(),
+    ),
+    GoRoute(
+      path: SearchPage.routePath,
+      builder: (context, state) => const SearchPage(),
+    ),
     GoRoute(
         path: EmailVerificationScreen.routePath,
         builder: (context, state) => const EmailVerificationScreen())

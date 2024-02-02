@@ -22,6 +22,7 @@ class FirestoreRepositoryImpl implements FireStoreRepository {
         title: entityclass.title,
         voteAverage: entityclass.voteAverage,
         releaseDate: entityclass.releaseDate);
+    await datasource.addToFireStore(movieadd);
   }
 
   @override
@@ -33,9 +34,9 @@ class FirestoreRepositoryImpl implements FireStoreRepository {
   Stream<List<HomeApiServiceEntity>> getAllMovies() async* {
     final datasourceMovies = datasource.getAllMovies();
     await for (final snapshot in datasourceMovies) {
-      final documents = snapshot.docs;
+      final docs = snapshot.docs;
       yield [
-        for (final model in documents)
+        for (final model in docs)
           HomeApiServiceEntity(
               id: model.data().id,
               originalTitle: model.data().originalTitle,
@@ -51,6 +52,7 @@ class FirestoreRepositoryImpl implements FireStoreRepository {
 }
 
 @riverpod
-  FireStoreRepository firestoreRepository(FirestoreRepositoryRef ref) {
-  return FirestoreRepositoryImpl(datasource: ref.read(firestoreHomeDatasourceProvider));
+FireStoreRepository firestoreRepository(FirestoreRepositoryRef ref) {
+  return FirestoreRepositoryImpl(
+      datasource: ref.read(firestoreHomeDatasourceProvider));
 }

@@ -8,7 +8,7 @@ class HomeApiserviceProviderState with _$HomeApiserviceProviderState {
   factory HomeApiserviceProviderState({
     required List<HomeApiServiceEntity> getMovies,
     required List<HomeApiServiceEntity> toprated,
-    // required List <HomeApiServiceEntity>sear,
+    required List<HomeApiServiceEntity>? searchMovies,
     required Stream<List<HomeApiServiceEntity>> favMoviesStream,
     required List<HomeApiServiceEntity> favMovies,
   }) = _HomeApiserviceProviderState;

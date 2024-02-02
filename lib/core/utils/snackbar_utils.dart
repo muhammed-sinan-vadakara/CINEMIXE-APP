@@ -9,4 +9,6 @@ final class SnackbarUtils {
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(message)));
   }
+
+  static showSnackBar(context, String message) {}
 }

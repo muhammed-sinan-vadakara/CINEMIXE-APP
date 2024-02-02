@@ -12,20 +12,64 @@ class HomeApiServiceRepositoryImpl implements HomeApiServiceRepository {
 
   @override
   Future<List<HomeApiServiceEntity>> getMovies() async {
-    final data = await dataSource.getMovies();
+    final datas = await dataSource.getMovies();
+
+    late List<HomeApiServiceEntity> results;
+    results = [
+      for (final result in datas.results)
+        HomeApiServiceEntity(
+          id: result.id.toString(),
+          originalTitle: result.originalTitle ?? "",
+          overview: result.overview ?? "",
+          posterPath: result.posterPath ?? "",
+          backdropPath: result.backdropPath ?? "",
+          title: result.title ?? "",
+          voteAverage: result.voteAverage ?? 0,
+          releaseDate:
+              DateTime.tryParse(result.releaseDate ?? '') ?? DateTime.now(),
+        )
+    ];
+    return results;
+  }
+
+  @override
+  Future<List<HomeApiServiceEntity>> searchMovies(String text) async {
+    final data = await dataSource.searchMovies(text);
+    late List<HomeApiServiceEntity> results;
+    results = [
+      for (final result in data.results)
+        HomeApiServiceEntity(
+          id: result.id.toString(),
+          originalTitle: result.originalTitle ?? "",
+          overview: result.overview ?? "",
+          posterPath: result.posterPath ?? "",
+          backdropPath: result.backdropPath ?? "",
+          title: result.title ?? "",
+          voteAverage: result.voteAverage ?? 0,
+          releaseDate:
+              DateTime.tryParse(result.releaseDate ?? '') ?? DateTime.now(),
+        )
+    ];
+    return results;
+  }
+
+  @override
+  Future<List<HomeApiServiceEntity>> topRated() async {
+    final data = await dataSource.topRated();
 
     late List<HomeApiServiceEntity> results;
     results = [
       for (final result in data.results)
         HomeApiServiceEntity(
           id: result.id.toString(),
-          originalTitle: result.originalTitle,
-          overview: result.overview,
-          posterPath: result.posterPath,
-           backdropPath: result.backdropPath,
-          title: result.title,
-          voteAverage: result.voteAverage,
-          releaseDate: result.releaseDate,
+          originalTitle: result.originalTitle ?? "",
+          backdropPath: result.backdropPath ?? "",
+          overview: result.overview ?? "",
+          posterPath: result.posterPath ?? "",
+          title: result.title ?? "",
+          voteAverage: result.voteAverage ?? 0,
+          releaseDate:
+              DateTime.tryParse(result.releaseDate ?? "") ?? DateTime.now(),
         )
     ];
     return results;

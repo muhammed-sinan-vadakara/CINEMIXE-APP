@@ -17,6 +17,30 @@ class HomeApiServiceDataSourceImpl implements HomeApiServiceDataSource {
 
     return HomeApiServiceModel.fromJson(response.data);
   }
+  
+  @override
+  Future<HomeApiServiceModel> searchMovies(String text) async{
+     dio.options.headers['Authorization'] = 'Bearer $token';
+    Response response = await dio.get(
+      "https://api.themoviedb.org/3/search/movie",
+      queryParameters: {
+        'query': text,
+        'include_adult': true,
+        'language': 'en-US',
+        'page': 1,
+      },
+    );
+    return HomeApiServiceModel.fromJson(response.data);
+  }
+  
+  
+  @override
+  Future<HomeApiServiceModel> topRated() async{
+     dio.options.headers['Authorization'] = 'Bearer $token';
+    Response response = await dio.get(
+        "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1");
+    return HomeApiServiceModel.fromJson(response.data);
+  }
 }
 
 @Riverpod()

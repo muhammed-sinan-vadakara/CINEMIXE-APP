@@ -1,48 +1,40 @@
 {
   "project_info": {
-    "project_number": "711311729966",
-    "project_id": "cinemixe-app",
-    "storage_bucket": "cinemixe-app.appspot.com"
+    "project_number": "643994979441",
+    "project_id": "cinemixe-app-8926b",
+    "storage_bucket": "cinemixe-app-8926b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:711311729966:android:3672debf63c58266f6c6bf",
+        "mobilesdk_app_id": "1:643994979441:android:9de72ee2461d482658dfd0",
         "android_client_info": {
           "package_name": "com.example.cinemixe"
         }
       },
       "oauth_client": [
         {
-          "client_id": "711311729966-3ea6jgabvcm31ovdfpk00t3c6ga3g2gj.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.cinemixe",
-            "certificate_hash": "67fe4dd6814d86f8fb55392740e68373e0691d11"
-          }
-        },
-        {
-          "client_id": "711311729966-h7qdj1t0muaaguhdav07vi0lki7fmpr7.apps.googleusercontent.com",
+          "client_id": "643994979441-436kqnqskfilesllu8rukdutnmnu8tvc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCSvLjugf9CjYTx04HCsl1GertUPFwXjhc"
+          "current_key": "AIzaSyBNqPsvK84tOqVohGq9UbbDSnUQ51x-JDo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "711311729966-h7qdj1t0muaaguhdav07vi0lki7fmpr7.apps.googleusercontent.com",
+              "client_id": "643994979441-436kqnqskfilesllu8rukdutnmnu8tvc.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "711311729966-7975d7437u9t8dbi93h87k2u4b2sj873.apps.googleusercontent.com",
+              "client_id": "643994979441-92u8kjpt9l60i9huk0k8v8pofu5suc5t.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.cinemixe"
+                "bundle_id": "com.example.cinemixe.RunnerTests"
               }
             }
           ]
