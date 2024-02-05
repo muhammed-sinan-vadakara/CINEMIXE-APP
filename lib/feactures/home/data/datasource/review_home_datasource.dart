@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cinemixe/feactures/home/data/models/review_home_model.dart';
+import 'package:cinemixe_app/feactures/home/data/models/review_home_model.dart';
 
 abstract class ReviewHomeDataSource {
   Future<void> addReview(ReviewHomeModel model);

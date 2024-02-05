@@ -45,17 +45,17 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyBGpljTn-5mO2rFPM1mRdNFc2I_1M9JdVU',
-    appId: '1:643994979441:web:91ea18021ade9d3658dfd0',
+    appId: '1:643994979441:web:533077cbb9a6444858dfd0',
     messagingSenderId: '643994979441',
     projectId: 'cinemixe-app-8926b',
     authDomain: 'cinemixe-app-8926b.firebaseapp.com',
     storageBucket: 'cinemixe-app-8926b.appspot.com',
-    measurementId: 'G-YZQJ8RTHZK',
+    measurementId: 'G-H57E7JRY28',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBNqPsvK84tOqVohGq9UbbDSnUQ51x-JDo',
-    appId: '1:643994979441:android:9de72ee2461d482658dfd0',
+    appId: '1:643994979441:android:86623394649c83e758dfd0',
     messagingSenderId: '643994979441',
     projectId: 'cinemixe-app-8926b',
     storageBucket: 'cinemixe-app-8926b.appspot.com',
@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBSRxYpUvorsYPU45kX3mtWSG08n2_4t10',
-    appId: '1:643994979441:ios:b82fcd5177365bff58dfd0',
+    appId: '1:643994979441:ios:fc7dc13ff447e24e58dfd0',
     messagingSenderId: '643994979441',
     projectId: 'cinemixe-app-8926b',
     storageBucket: 'cinemixe-app-8926b.appspot.com',
@@ -73,7 +73,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyBSRxYpUvorsYPU45kX3mtWSG08n2_4t10',
-    appId: '1:643994979441:ios:4ffa7876c838f2a258dfd0',
+    appId: '1:643994979441:ios:88b0a383ac7b752b58dfd0',
     messagingSenderId: '643994979441',
     projectId: 'cinemixe-app-8926b',
     storageBucket: 'cinemixe-app-8926b.appspot.com',

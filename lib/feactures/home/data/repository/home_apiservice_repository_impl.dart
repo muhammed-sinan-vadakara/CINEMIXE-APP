@@ -1,7 +1,7 @@
-import 'package:cinemixe/feactures/home/data/datasource/home_apiservice_datasource.dart';
-import 'package:cinemixe/feactures/home/data/datasource/home_apiservice_datasource_impl.dart';
-import 'package:cinemixe/feactures/home/domain/entities/home_apiservice_entity.dart';
-import 'package:cinemixe/feactures/home/domain/repositories/home_repository.dart';
+import 'package:cinemixe_app/feactures/home/data/datasource/home_apiservice_datasource.dart';
+import 'package:cinemixe_app/feactures/home/data/datasource/home_apiservice_datasource_impl.dart';
+import 'package:cinemixe_app/feactures/home/domain/entities/home_apiservice_entity.dart';
+import 'package:cinemixe_app/feactures/home/domain/repositories/home_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'home_apiservice_repository_impl.g.dart';

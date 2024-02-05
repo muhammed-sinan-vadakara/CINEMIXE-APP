@@ -1,9 +1,9 @@
-import 'package:cinemixe/core/contants/home/homepage_constants.dart';
-import 'package:cinemixe/core/theme/app_theme.dart';
-import 'package:cinemixe/core/widgets/text_flied.dart';
-import 'package:cinemixe/feactures/home/presentation/providers/home_apiservice_provider.dart';
-import 'package:cinemixe/feactures/home/presentation/widgets/bottom_navigation_bar_widget.dart';
-import 'package:cinemixe/feactures/home/presentation/widgets/gridview_widget.dart';
+import 'package:cinemixe_app/core/contants/home/homepage_constants.dart';
+import 'package:cinemixe_app/core/theme/app_theme.dart';
+import 'package:cinemixe_app/core/widgets/text_flied.dart';
+import 'package:cinemixe_app/feactures/home/presentation/providers/home_apiservice_provider.dart';
+import 'package:cinemixe_app/feactures/home/presentation/widgets/bottom_navigation_bar_widget.dart';
+import 'package:cinemixe_app/feactures/home/presentation/widgets/gridview_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -40,7 +40,7 @@ class SearchPage extends HookConsumerWidget {
                   suffixxIcon: IconButton(
                       onPressed: () {
                         ref
-                            .read(homeApiServiceProviderProvider.notifier)
+                            .watch(homeApiServiceProviderProvider.notifier)
                             .searchMovies(controller.text, context);
                       },
                       icon: const Icon(
@@ -75,7 +75,7 @@ class SearchPage extends HookConsumerWidget {
                                     },
                                     child: const Text(
                                       "No data available",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.red),
                                     )),
                               );
                             } else {

@@ -1,23 +1,23 @@
 import 'dart:async';
-import 'package:cinemixe/core/exceptions/base_exception.dart';
-import 'package:cinemixe/core/utils/snackbar_utils.dart';
-import 'package:cinemixe/feactures/home/data/repository/firestore_home_repository_impl.dart';
-import 'package:cinemixe/feactures/home/data/repository/home_apiservice_repository_impl.dart';
-import 'package:cinemixe/feactures/home/data/repository/review_home_repository_impl.dart';
-import 'package:cinemixe/feactures/home/domain/entities/home_apiservice_entity.dart';
-import 'package:cinemixe/feactures/home/domain/entities/review_home_entity.dart';
-import 'package:cinemixe/feactures/home/domain/repositories/home_repository.dart';
-import 'package:cinemixe/feactures/home/domain/usecase/addreview_usecase.dart';
-import 'package:cinemixe/feactures/home/domain/usecase/addtofirestore_usecase.dart';
-import 'package:cinemixe/feactures/home/domain/usecase/checkfavarite_movies_usecase.dart';
-import 'package:cinemixe/feactures/home/domain/usecase/delete_review_usecase.dart';
-import 'package:cinemixe/feactures/home/domain/usecase/deletefromfirestore_usecase.dart';
-import 'package:cinemixe/feactures/home/domain/usecase/firestore_getall_movies_usecase.dart';
-import 'package:cinemixe/feactures/home/domain/usecase/getmovie_usecase.dart';
-import 'package:cinemixe/feactures/home/domain/usecase/getreview_usecase.dart';
-import 'package:cinemixe/feactures/home/domain/usecase/searchmovie_usecase.dart';
-import 'package:cinemixe/feactures/home/domain/usecase/toprated_firestore_usecase.dart';
-import 'package:cinemixe/feactures/home/presentation/providers/home_apiservice_provider_state.dart';
+import 'package:cinemixe_app/core/exceptions/base_exception.dart';
+import 'package:cinemixe_app/core/utils/snackbar_utils.dart';
+import 'package:cinemixe_app/feactures/home/data/repository/firestore_home_repository_impl.dart';
+import 'package:cinemixe_app/feactures/home/data/repository/home_apiservice_repository_impl.dart';
+import 'package:cinemixe_app/feactures/home/data/repository/review_home_repository_impl.dart';
+import 'package:cinemixe_app/feactures/home/domain/entities/home_apiservice_entity.dart';
+import 'package:cinemixe_app/feactures/home/domain/entities/review_home_entity.dart';
+import 'package:cinemixe_app/feactures/home/domain/repositories/home_repository.dart';
+import 'package:cinemixe_app/feactures/home/domain/usecase/addreview_usecase.dart';
+import 'package:cinemixe_app/feactures/home/domain/usecase/addtofirestore_usecase.dart';
+import 'package:cinemixe_app/feactures/home/domain/usecase/checkfavarite_movies_usecase.dart';
+import 'package:cinemixe_app/feactures/home/domain/usecase/delete_review_usecase.dart';
+import 'package:cinemixe_app/feactures/home/domain/usecase/deletefromfirestore_usecase.dart';
+import 'package:cinemixe_app/feactures/home/domain/usecase/firestore_getall_movies_usecase.dart';
+import 'package:cinemixe_app/feactures/home/domain/usecase/getmovie_usecase.dart';
+import 'package:cinemixe_app/feactures/home/domain/usecase/getreview_usecase.dart';
+import 'package:cinemixe_app/feactures/home/domain/usecase/searchmovie_usecase.dart';
+import 'package:cinemixe_app/feactures/home/domain/usecase/toprated_firestore_usecase.dart';
+import 'package:cinemixe_app/feactures/home/presentation/providers/home_apiservice_provider_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -48,7 +48,7 @@ class HomeApiServiceProvider extends _$HomeApiServiceProvider {
     try {
       final repository = ref.watch(homeApiServiceRepositoryProvider);
       final data = await SearchMovieUseCase(repository: repository)(text);
-      state = AsyncValue.data(state.value!.copyWith(getMovies: data));
+      state = AsyncValue.data(state.value!.copyWith(searchMovies: data));
     } on BaseException catch (e) {
       Future.sync(() => SnackbarUtils.showSnackBar(context, e.message));
     }
@@ -97,10 +97,10 @@ final readmoreProvider = StateProvider<bool>((ref) {
   return false;
 });
 
-// import 'package:cinemixe/feactures/home/data/repository/home_apiservice_repository_impl.dart';
-// import 'package:cinemixe/feactures/home/domain/entities/home_apiservice_entity.dart';
-// import 'package:cinemixe/feactures/home/domain/repositories/home_repository.dart';
-// import 'package:cinemixe/feactures/home/domain/usecase/home_apiservice_usecase.dart';
+// import 'package:cinemixe_app/feactures/home/data/repository/home_apiservice_repository_impl.dart';
+// import 'package:cinemixe_app/feactures/home/domain/entities/home_apiservice_entity.dart';
+// import 'package:cinemixe_app/feactures/home/domain/repositories/home_repository.dart';
+// import 'package:cinemixe_app/feactures/home/domain/usecase/home_apiservice_usecase.dart';
 // import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // part 'home_apiservice_provider.g.dart';

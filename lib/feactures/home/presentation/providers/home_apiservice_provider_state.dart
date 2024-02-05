@@ -1,4 +1,4 @@
-import 'package:cinemixe/feactures/home/domain/entities/home_apiservice_entity.dart';
+import 'package:cinemixe_app/feactures/home/domain/entities/home_apiservice_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'home_apiservice_provider_state.freezed.dart';

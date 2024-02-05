@@ -1,4 +1,4 @@
-import 'package:cinemixe/core/theme/app_theme.dart';
+import 'package:cinemixe_app/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class SignupLoginButton extends StatelessWidget {

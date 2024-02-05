@@ -1,8 +1,8 @@
-import 'package:cinemixe/feactures/home/data/datasource/review_home_datasource.dart';
-import 'package:cinemixe/feactures/home/data/datasource/review_home_datasource_impl.dart';
-import 'package:cinemixe/feactures/home/data/models/review_home_model.dart';
-import 'package:cinemixe/feactures/home/domain/entities/review_home_entity.dart';
-import 'package:cinemixe/feactures/home/domain/repositories/review_home_repository.dart';
+import 'package:cinemixe_app/feactures/home/data/datasource/review_home_datasource.dart';
+import 'package:cinemixe_app/feactures/home/data/datasource/review_home_datasource_impl.dart';
+import 'package:cinemixe_app/feactures/home/data/models/review_home_model.dart';
+import 'package:cinemixe_app/feactures/home/domain/entities/review_home_entity.dart';
+import 'package:cinemixe_app/feactures/home/domain/repositories/review_home_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'review_home_repository_impl.g.dart';

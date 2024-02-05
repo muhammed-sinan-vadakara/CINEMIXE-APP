@@ -1,6 +1,6 @@
-import 'package:cinemixe/core/contants/home/home_apiservice_constants.dart';
-import 'package:cinemixe/feactures/home/domain/entities/home_apiservice_entity.dart';
-import 'package:cinemixe/feactures/home/presentation/pages/overviewpage.dart';
+import 'package:cinemixe_app/core/contants/home/home_apiservice_constants.dart';
+import 'package:cinemixe_app/feactures/home/domain/entities/home_apiservice_entity.dart';
+import 'package:cinemixe_app/feactures/home/presentation/pages/overviewpage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';

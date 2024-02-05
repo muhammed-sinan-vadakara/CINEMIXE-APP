@@ -1,5 +1,5 @@
-import 'package:cinemixe/core/exceptions/authentication/auth_failed_exception.dart';
-import 'package:cinemixe/feactures/authenthication/domain/repositories/auth_repository.dart';
+import 'package:cinemixe_app/core/exceptions/authentication/auth_failed_exception.dart';
+import 'package:cinemixe_app/feactures/authenthication/domain/repositories/auth_repository.dart';
 
 final class ResetPasswordbyEmailUsecase {
   final AuthRepository repository;

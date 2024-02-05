@@ -1,14 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cinemixe/core/contants/home/home_apiservice_constants.dart';
-import 'package:cinemixe/core/contants/home/homepage_constants.dart';
-import 'package:cinemixe/feactures/authenthication/presentation/providers/auth_provider.dart';
-// import 'package:cinemixe/feactures/home/presentation/pages/favarite_page.dart';
-// import 'package:cinemixe/core/theme/app_theme.dart';
-// import 'package:cinemixe/feactures/authenthication/presentation/pages/login_page.dart';
-import 'package:cinemixe/feactures/home/presentation/pages/overviewpage.dart';
-import 'package:cinemixe/feactures/home/presentation/providers/home_apiservice_provider.dart';
-import 'package:cinemixe/feactures/home/presentation/widgets/bottom_navigation_bar_widget.dart';
-import 'package:cinemixe/feactures/home/presentation/widgets/listview_widget.dart';
+import 'package:cinemixe_app/core/contants/home/home_apiservice_constants.dart';
+import 'package:cinemixe_app/core/contants/home/homepage_constants.dart';
+import 'package:cinemixe_app/feactures/authenthication/presentation/providers/auth_provider.dart';
+// import 'package:cinemixe_app/feactures/home/presentation/pages/favarite_page.dart';
+// import 'package:cinemixe_app/core/theme/app_theme.dart';
+// import 'package:cinemixe_app/feactures/authenthication/presentation/pages/login_page.dart';
+import 'package:cinemixe_app/feactures/home/presentation/pages/overviewpage.dart';
+import 'package:cinemixe_app/feactures/home/presentation/providers/home_apiservice_provider.dart';
+import 'package:cinemixe_app/feactures/home/presentation/widgets/bottom_navigation_bar_widget.dart';
+import 'package:cinemixe_app/feactures/home/presentation/widgets/listview_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -60,13 +60,16 @@ class HomeApiServicePage extends ConsumerWidget {
           AsyncData(:final value) => SingleChildScrollView(
               child: Column(
                 children: [
+                  SizedBox(
+                    height: 10,
+                  ),
                   CarouselSlider.builder(
                       itemCount: value.getMovies.length,
                       itemBuilder: (context, index, realIndex) => InkWell(
                             child: Container(
-                              height: 200,
+                              height: 220,
                               width: 150,
-                              color: Colors.amber,
+                              color: Colors.black,
                               child: Image.network(
                                   '$imagePath${value.getMovies[index].posterPath}'),
                             ),

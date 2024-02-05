@@ -1,10 +1,10 @@
-import 'package:cinemixe/core/contants/login_page/constants.dart';
-import 'package:cinemixe/core/contants/sinup_page/constants.dart';
-import 'package:cinemixe/core/theme/app_theme.dart';
-import 'package:cinemixe/core/widgets/text_flied.dart';
-import 'package:cinemixe/feactures/authenthication/presentation/pages/email_verification_page.dart';
-import 'package:cinemixe/feactures/authenthication/presentation/pages/sinup_page.dart';
-import 'package:cinemixe/feactures/authenthication/presentation/providers/auth_provider.dart';
+import 'package:cinemixe_app/core/contants/login_page/constants.dart';
+import 'package:cinemixe_app/core/contants/sinup_page/constants.dart';
+import 'package:cinemixe_app/core/theme/app_theme.dart';
+import 'package:cinemixe_app/core/widgets/text_flied.dart';
+import 'package:cinemixe_app/feactures/authenthication/presentation/pages/email_verification_page.dart';
+import 'package:cinemixe_app/feactures/authenthication/presentation/pages/sinup_page.dart';
+import 'package:cinemixe_app/feactures/authenthication/presentation/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';

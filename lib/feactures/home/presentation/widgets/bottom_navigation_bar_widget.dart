@@ -1,8 +1,8 @@
-import 'package:cinemixe/core/theme/app_theme.dart';
-import 'package:cinemixe/core/theme/color_palette.dart';
-import 'package:cinemixe/feactures/home/presentation/pages/favarite_page.dart';
-import 'package:cinemixe/feactures/home/presentation/pages/homepage.dart';
-import 'package:cinemixe/feactures/home/presentation/pages/search_page.dart';
+import 'package:cinemixe_app/core/theme/app_theme.dart';
+import 'package:cinemixe_app/core/theme/color_palette.dart';
+import 'package:cinemixe_app/feactures/home/presentation/pages/favarite_page.dart';
+import 'package:cinemixe_app/feactures/home/presentation/pages/homepage.dart';
+import 'package:cinemixe_app/feactures/home/presentation/pages/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,7 +13,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       elevation: 0,
-      backgroundColor: AppColorPalette.black100.withOpacity(.80),
+      backgroundColor: Colors.purple.withOpacity(.80),
       selectedItemColor: Colors.white,
       unselectedItemColor: AppTheme.of(context).colors.textSubtlest,
       iconSize: AppTheme.of(context).spaces.space_400,

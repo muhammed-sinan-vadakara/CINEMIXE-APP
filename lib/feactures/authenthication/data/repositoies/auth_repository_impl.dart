@@ -1,6 +1,6 @@
-import 'package:cinemixe/feactures/authenthication/data/datasource/authentication_datasource_impl.dart';
-import 'package:cinemixe/feactures/authenthication/data/datasource/authetication_datasource.dart';
-import 'package:cinemixe/feactures/authenthication/domain/repositories/auth_repository.dart';
+import 'package:cinemixe_app/feactures/authenthication/data/datasource/authentication_datasource_impl.dart';
+import 'package:cinemixe_app/feactures/authenthication/data/datasource/authetication_datasource.dart';
+import 'package:cinemixe_app/feactures/authenthication/domain/repositories/auth_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_repository_impl.g.dart';

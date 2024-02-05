@@ -1,5 +1,5 @@
-import 'package:cinemixe/core/exceptions/base_exception.dart';
-import 'package:cinemixe/feactures/authenthication/domain/repositories/auth_repository.dart';
+import 'package:cinemixe_app/core/exceptions/base_exception.dart';
+import 'package:cinemixe_app/feactures/authenthication/domain/repositories/auth_repository.dart';
 
 final class EmailVerificationUsecase {
   final AuthRepository repository;

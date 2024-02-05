@@ -1,6 +1,6 @@
-import 'package:cinemixe/core/contants/home/home_apiservice_constants.dart';
-import 'package:cinemixe/feactures/home/data/datasource/home_apiservice_datasource.dart';
-import 'package:cinemixe/feactures/home/data/models/home_apiservice_model.dart';
+import 'package:cinemixe_app/core/contants/home/home_apiservice_constants.dart';
+import 'package:cinemixe_app/feactures/home/data/datasource/home_apiservice_datasource.dart';
+import 'package:cinemixe_app/feactures/home/data/models/home_apiservice_model.dart';
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

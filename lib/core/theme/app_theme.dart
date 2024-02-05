@@ -1,6 +1,6 @@
-import 'package:cinemixe/core/theme/extentions/color_extention.dart';
-import 'package:cinemixe/core/theme/extentions/space_extention.dart';
-import 'package:cinemixe/core/theme/extentions/typography_extention.dart';
+import 'package:cinemixe_app/core/theme/extentions/color_extention.dart';
+import 'package:cinemixe_app/core/theme/extentions/space_extention.dart';
+import 'package:cinemixe_app/core/theme/extentions/typography_extention.dart';
 import 'package:flutter/material.dart';
 
 final class AppTheme {

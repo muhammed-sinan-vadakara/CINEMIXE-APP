@@ -1,6 +1,6 @@
-import 'package:cinemixe/core/exceptions/base_exception.dart';
-import 'package:cinemixe/feactures/home/domain/entities/home_apiservice_entity.dart';
-import 'package:cinemixe/feactures/home/domain/repositories/home_repository.dart';
+import 'package:cinemixe_app/core/exceptions/base_exception.dart';
+import 'package:cinemixe_app/feactures/home/domain/entities/home_apiservice_entity.dart';
+import 'package:cinemixe_app/feactures/home/domain/repositories/home_repository.dart';
 
 final class SearchMovieUseCase {
   final HomeApiServiceRepository repository;

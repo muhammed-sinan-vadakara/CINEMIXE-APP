@@ -1,4 +1,4 @@
-import 'package:cinemixe/feactures/home/domain/entities/review_home_entity.dart';
+import 'package:cinemixe_app/feactures/home/domain/entities/review_home_entity.dart';
 
 abstract class ReviewHomeRepository {
   Future<void> addReview(ReviewHomeEntity entity);

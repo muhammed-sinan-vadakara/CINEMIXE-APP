@@ -1,10 +1,10 @@
-import 'package:cinemixe/core/contants/home/home_apiservice_constants.dart';
-import 'package:cinemixe/core/theme/app_theme.dart';
-import 'package:cinemixe/feactures/home/presentation/providers/home_apiservice_provider.dart';
-import 'package:cinemixe/feactures/home/presentation/widgets/bottom_navigation_bar_widget.dart';
-import 'package:cinemixe/feactures/home/presentation/widgets/show_model_widget.dart';
+import 'package:cinemixe_app/core/contants/home/home_apiservice_constants.dart';
+import 'package:cinemixe_app/core/theme/app_theme.dart';
+import 'package:cinemixe_app/feactures/home/presentation/providers/home_apiservice_provider.dart';
+import 'package:cinemixe_app/feactures/home/presentation/widgets/bottom_navigation_bar_widget.dart';
+import 'package:cinemixe_app/feactures/home/presentation/widgets/show_model_widget.dart';
 import 'package:flutter/gestures.dart';
-import 'package:cinemixe/feactures/home/domain/entities/home_apiservice_entity.dart';
+import 'package:cinemixe_app/feactures/home/domain/entities/home_apiservice_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

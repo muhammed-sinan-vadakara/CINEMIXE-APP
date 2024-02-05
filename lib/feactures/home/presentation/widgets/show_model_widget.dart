@@ -1,7 +1,7 @@
-import 'package:cinemixe/feactures/home/data/datasource/home_apiservice_datasource_impl.dart';
-import 'package:cinemixe/feactures/home/domain/entities/home_apiservice_entity.dart';
-import 'package:cinemixe/feactures/home/domain/entities/review_home_entity.dart';
-import 'package:cinemixe/feactures/home/presentation/providers/home_apiservice_provider.dart';
+import 'package:cinemixe_app/feactures/home/data/datasource/home_apiservice_datasource_impl.dart';
+import 'package:cinemixe_app/feactures/home/domain/entities/home_apiservice_entity.dart';
+import 'package:cinemixe_app/feactures/home/domain/entities/review_home_entity.dart';
+import 'package:cinemixe_app/feactures/home/presentation/providers/home_apiservice_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';

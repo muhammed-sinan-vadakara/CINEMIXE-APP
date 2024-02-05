@@ -1,4 +1,4 @@
-import 'package:cinemixe/feactures/home/data/models/home_apiservice_model.dart';
+import 'package:cinemixe_app/feactures/home/data/models/home_apiservice_model.dart';
 
 abstract class HomeApiServiceDataSource {
   Future<HomeApiServiceModel> getMovies();

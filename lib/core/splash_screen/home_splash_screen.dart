@@ -1,5 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:cinemixe/feactures/authenthication/presentation/pages/login_page.dart';
+import 'package:cinemixe_app/feactures/authenthication/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class Splash1 extends StatefulWidget {

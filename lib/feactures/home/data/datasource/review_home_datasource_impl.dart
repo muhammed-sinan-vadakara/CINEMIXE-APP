@@ -1,5 +1,5 @@
-import 'package:cinemixe/feactures/home/data/datasource/review_home_datasource.dart';
-import 'package:cinemixe/feactures/home/data/models/review_home_model.dart';
+import 'package:cinemixe_app/feactures/home/data/datasource/review_home_datasource.dart';
+import 'package:cinemixe_app/feactures/home/data/models/review_home_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
