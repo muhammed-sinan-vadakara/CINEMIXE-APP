@@ -67,7 +67,8 @@ class SignupPage extends HookConsumerWidget {
                   TextButton(
                     onPressed: () => ref
                         .read(authenticationProvider.notifier)
-                        .signup(context,emailController.text, passwordController.text),
+                        .signup(context, emailController.text,
+                            passwordController.text),
                     child: Text(constants.txtSignupBtnLabel),
                   ),
                   const SizedBox(height: 24),
@@ -81,7 +82,8 @@ class SignupPage extends HookConsumerWidget {
                   TextButton(
                     onPressed: () => ref
                         .read(authenticationProvider.notifier)
-                        .phoneNumberVerfication(context,phoneNumberController.text),
+                        .phoneNumberVerfication(
+                            context, phoneNumberController.text),
                     child: const Text("phone number verfy"),
                   )
                 ],
@@ -93,50 +95,6 @@ class SignupPage extends HookConsumerWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import 'package:cinemixe/core/contants/login_page/constants.dart';
 // import 'package:cinemixe/core/theme/app_theme.dart';

@@ -9,7 +9,7 @@ class HomeApiServiceEntity with _$HomeApiServiceEntity {
     required String originalTitle,
     required String overview,
     required String posterPath,
-     required String backdropPath,
+    required String backdropPath,
     required String title,
     required double voteAverage,
     required DateTime releaseDate,

@@ -21,7 +21,8 @@ class FavouriteMoviesPage extends ConsumerWidget {
       ),
       backgroundColor: const Color.fromARGB(255, 32, 31, 31),
       body: StreamBuilder(
-          stream: ref.watch(homeApiServiceProviderProvider.notifier).getAllMovies(),
+          stream:
+              ref.watch(homeApiServiceProviderProvider.notifier).getAllMovies(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return GridViewWidget(
@@ -40,29 +41,6 @@ class FavouriteMoviesPage extends ConsumerWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import 'package:cinemixe/core/contants/home/homepage_constants.dart';
 // import 'package:cinemixe/core/widgets/text_flied.dart';

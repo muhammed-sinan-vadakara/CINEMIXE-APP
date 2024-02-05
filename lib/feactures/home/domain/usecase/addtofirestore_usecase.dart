@@ -6,10 +6,10 @@ final class AddtoFireStoreUsecase {
   final FireStoreRepository repository;
   AddtoFireStoreUsecase({required this.repository});
 
-  Future<void>call(HomeApiServiceEntity entityclass)async{
-    try{
+  Future<void> call(HomeApiServiceEntity entityclass) async {
+    try {
       await repository.addtofirestore(entityclass);
-    } catch (e){
+    } catch (e) {
       throw BaseException(e.toString());
     }
   }

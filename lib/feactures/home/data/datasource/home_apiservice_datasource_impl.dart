@@ -17,10 +17,10 @@ class HomeApiServiceDataSourceImpl implements HomeApiServiceDataSource {
 
     return HomeApiServiceModel.fromJson(response.data);
   }
-  
+
   @override
-  Future<HomeApiServiceModel> searchMovies(String text) async{
-     dio.options.headers['Authorization'] = 'Bearer $token';
+  Future<HomeApiServiceModel> searchMovies(String text) async {
+    dio.options.headers['Authorization'] = 'Bearer $token';
     Response response = await dio.get(
       "https://api.themoviedb.org/3/search/movie",
       queryParameters: {
@@ -32,11 +32,10 @@ class HomeApiServiceDataSourceImpl implements HomeApiServiceDataSource {
     );
     return HomeApiServiceModel.fromJson(response.data);
   }
-  
-  
+
   @override
-  Future<HomeApiServiceModel> topRated() async{
-     dio.options.headers['Authorization'] = 'Bearer $token';
+  Future<HomeApiServiceModel> topRated() async {
+    dio.options.headers['Authorization'] = 'Bearer $token';
     Response response = await dio.get(
         "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1");
     return HomeApiServiceModel.fromJson(response.data);
@@ -48,8 +47,6 @@ HomeApiServiceDataSource homeApiServiceDataSource(
     HomeApiServiceDataSourceRef ref) {
   return HomeApiServiceDataSourceImpl();
 }
-
-
 
 // curl --request GET \
 //      --url 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc' \

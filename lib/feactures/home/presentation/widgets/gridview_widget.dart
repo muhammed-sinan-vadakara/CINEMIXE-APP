@@ -5,11 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-
 class GridViewWidget extends ConsumerWidget {
   final List<HomeApiServiceEntity> entity;
-   final imagePath = HomeApiServicetokenConstants().imagePath;
-   GridViewWidget({super.key, required this.entity});
+  final imagePath = HomeApiServicetokenConstants().imagePath;
+  GridViewWidget({super.key, required this.entity});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,8 +24,7 @@ class GridViewWidget extends ConsumerWidget {
         child: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: NetworkImage(
-                    imagePath + entity[index].posterPath),
+                  image: NetworkImage(imagePath + entity[index].posterPath),
                   fit: BoxFit.cover)),
         ),
       ),

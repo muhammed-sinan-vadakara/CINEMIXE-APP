@@ -25,16 +25,7 @@ class MovieApp extends ConsumerWidget {
   }
 }
 
-
-
-
 // https://dribbble.com/shots/23385406-Sign-Up-Login-UI-for-Android-phones
-
-
-
-
-
-
 
 // name: cinemixe
 // description: "A new Flutter project."
@@ -68,7 +59,6 @@ class MovieApp extends ConsumerWidget {
 // dependencies:
 //   flutter:
 //     sdk: flutter
-
 
 //   # The following adds the Cupertino Icons font to your application.
 //   # Use with the CupertinoIcons class for iOS style icons.

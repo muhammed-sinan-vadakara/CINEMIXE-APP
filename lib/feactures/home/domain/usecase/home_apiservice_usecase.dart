@@ -10,7 +10,7 @@ final class HomeApiServiceUseCase {
     try {
       return await repository.getMovies();
     } catch (e) {
-      throw  GetMovieException("Error While Fetching Movies,$e");
+      throw GetMovieException("Error While Fetching Movies,$e");
     }
   }
 }

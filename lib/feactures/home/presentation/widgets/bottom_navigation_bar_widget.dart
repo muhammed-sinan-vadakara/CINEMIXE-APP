@@ -6,8 +6,6 @@ import 'package:cinemixe/feactures/home/presentation/pages/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-
-
 class BottomNavigationBarWidget extends StatelessWidget {
   const BottomNavigationBarWidget({super.key});
 
@@ -24,7 +22,7 @@ class BottomNavigationBarWidget extends StatelessWidget {
         BottomNavigationBarItem(
             icon: IconButton(
                 onPressed: () {
-                  context. go(HomeApiServicePage.routePath);
+                  context.go(HomeApiServicePage.routePath);
                 },
                 icon: const Icon(Icons.home_filled)),
             label: ''),

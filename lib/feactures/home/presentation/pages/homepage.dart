@@ -24,7 +24,7 @@ class HomeApiServicePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final apidata = ref.watch(homeApiServiceProviderProvider);
     final constants = ref.watch(homePageConstantsProvider);
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
@@ -56,8 +56,7 @@ class HomeApiServicePage extends ConsumerWidget {
             ),
           ],
         ),
-        body: 
-        switch (apidata) {
+        body: switch (apidata) {
           AsyncData(:final value) => SingleChildScrollView(
               child: Column(
                 children: [
@@ -66,7 +65,7 @@ class HomeApiServicePage extends ConsumerWidget {
                       itemBuilder: (context, index, realIndex) => InkWell(
                             child: Container(
                               height: 200,
-                              width: 150, 
+                              width: 150,
                               color: Colors.amber,
                               child: Image.network(
                                   '$imagePath${value.getMovies[index].posterPath}'),

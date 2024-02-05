@@ -27,7 +27,8 @@ class ReviewHomeDataSourceImpl implements ReviewHomeDataSource {
     return collection.where('movieId', isEqualTo: movieId).snapshots();
   }
 }
+
 @riverpod
- ReviewHomeDataSource reviewHomeDataSource(ReviewHomeDataSourceRef ref){
+ReviewHomeDataSource reviewHomeDataSource(ReviewHomeDataSourceRef ref) {
   return ReviewHomeDataSourceImpl();
- }
+}

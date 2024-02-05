@@ -2,6 +2,7 @@ import 'package:cinemixe/core/contants/home/home_apiservice_constants.dart';
 import 'package:cinemixe/core/theme/app_theme.dart';
 import 'package:cinemixe/feactures/home/presentation/providers/home_apiservice_provider.dart';
 import 'package:cinemixe/feactures/home/presentation/widgets/bottom_navigation_bar_widget.dart';
+import 'package:cinemixe/feactures/home/presentation/widgets/show_model_widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:cinemixe/feactures/home/domain/entities/home_apiservice_entity.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,7 @@ class OverViewPage extends HookConsumerWidget {
                       style: AppTheme.of(context)
                           .typography
                           .h600
-                          .copyWith(color: Colors.white),
+                          .copyWith(color: Colors.black),
                       children: [
                         TextSpan(text: " (${entity.releaseDate.year})"),
                         TextSpan(
@@ -110,9 +111,10 @@ class OverViewPage extends HookConsumerWidget {
 
                         return IconButton(
                           style: IconButton.styleFrom(
-                              backgroundColor: const Color(0xFFCD201F),
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 15)),
+                            backgroundColor: const Color(0xFFCD201F),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 15),
+                          ),
                           onPressed: () {
                             if (isFavMovie) {
                               ref
@@ -125,16 +127,81 @@ class OverViewPage extends HookConsumerWidget {
                             }
                           },
                           icon: Icon(
-                            isFavMovie 
-                                ? Icons.favorite
-                                : Icons.favorite_border,
+                            isFavMovie ? Icons.favorite : Icons.favorite_border,
                             size: 35,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         );
                       }),
                 ],
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Reviews :",
+                    style: AppTheme.of(context)
+                        .typography
+                        .h700
+                        .copyWith(color: Colors.black),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (context) {
+                          return ShowModelWidget(entity: entity);
+                        },
+                      );
+                    },
+                    icon: const Icon(
+                      Icons.add,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+              StreamBuilder(
+                stream: ref
+                    .watch(homeApiServiceProviderProvider.notifier)
+                    .getreviews(entity.id),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return SizedBox(
+                      height: 300,
+                      child: ListView.builder(
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (context, index) => ListTile(
+                          leading: const CircleAvatar(),
+                          title: Text(
+                            snapshot.data![index].review,
+                            style: AppTheme.of(context)
+                                .typography
+                                .h400
+                                .copyWith(color: Colors.black),
+                          ),
+                          trailing: IconButton(
+                              onPressed: () {
+                                ref
+                                    .read(
+                                        homeApiServiceProviderProvider.notifier)
+                                    .delReview(snapshot.data![index].id);
+                              },
+                              icon: const Icon(
+                                Icons.delete,
+                                color: Colors.black,
+                                size: 20,
+                              )),
+                        ),
+                      ),
+                    );
+                  } else if (snapshot.hasError) {
+                    return const Text('Retry');
+                  } else {
+                    return const CircularProgressIndicator();
+                  }
+                },
+              )
             ],
           ),
         ),

@@ -40,6 +40,7 @@ class ReviewHomeRepositoryImpl implements ReviewHomeRepository {
 }
 
 @riverpod
- ReviewHomeRepository reviewHomeRepository(ReviewHomeRepositoryRef ref){
-  return ReviewHomeRepositoryImpl(dataSource: ref.read(reviewHomeDataSourceProvider));
+ReviewHomeRepository reviewHomeRepository(ReviewHomeRepositoryRef ref) {
+  return ReviewHomeRepositoryImpl(
+      dataSource: ref.read(reviewHomeDataSourceProvider));
 }

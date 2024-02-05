@@ -31,5 +31,5 @@ class FirestoreHomeModel with _$FirestoreHomeModel {
   }
   Map<String, dynamic> toFirestore() {
     return toJson();
-  }  
+  }
 }

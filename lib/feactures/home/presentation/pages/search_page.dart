@@ -63,8 +63,7 @@ class SearchPage extends HookConsumerWidget {
                   builder: (context) {
                     return ref.watch(homeApiServiceProviderProvider).when(
                           data: (data) {
-                            if (data.searchMovies == null
-                                ) {
+                            if (data.searchMovies == null) {
                               return Center(
                                 child: TextButton(
                                     onPressed: () {

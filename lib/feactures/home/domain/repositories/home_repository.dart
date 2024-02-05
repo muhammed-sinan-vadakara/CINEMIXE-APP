@@ -2,6 +2,6 @@ import 'package:cinemixe/feactures/home/domain/entities/home_apiservice_entity.d
 
 abstract class HomeApiServiceRepository {
   Future<List<HomeApiServiceEntity>> getMovies();
-   Future<List<HomeApiServiceEntity>> topRated();
+  Future<List<HomeApiServiceEntity>> topRated();
   Future<List<HomeApiServiceEntity>> searchMovies(String text);
 }

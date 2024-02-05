@@ -19,7 +19,7 @@ final _lightTheme = ThemeData(
       textSubtle: AppColorPalette.grey700,
       textSubtlest: AppColorPalette.grey500,
       backgroundDanger: Colors.red,
-      normaltext:Colors.black,
+      normaltext: Colors.black,
     ),
     AppSpaceExtension.fromBaseSpace(8),
     AppTypographyExtension.fromColors(

@@ -9,7 +9,6 @@ final class SearchMovieUseCase {
   Future<List<HomeApiServiceEntity>> call(String text) async {
     try {
       return await repository.searchMovies(text);
-      
     } catch (e) {
       throw BaseException('Failed to load Movies');
     }
