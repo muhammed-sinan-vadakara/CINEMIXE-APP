@@ -20,7 +20,7 @@ class GridViewWidget extends ConsumerWidget {
           mainAxisSpacing: 15,
           crossAxisSpacing: 10),
       itemBuilder: (context, index) => InkWell(
-        onTap: () => context.push(OverViewPage.routhpath, extra: entity[index]),
+        onTap: () => context.push(OverViewPage.routePath, extra: entity[index]),
         child: Container(
           decoration: BoxDecoration(
               image: DecorationImage(

@@ -117,7 +117,7 @@ class HomeApiServicePage extends ConsumerWidget {
                                 borderRadius: BorderRadius.circular(10),
                                 child: InkWell(
                                   onTap: () {
-                                    context.push(OverViewPage.routhpath,
+                                    context.push(OverViewPage.routePath,
                                         extra: value.getMovies[index]);
                                   },
                                   child: Container(

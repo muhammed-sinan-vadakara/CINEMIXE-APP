@@ -1,4 +1,3 @@
-import 'package:cinemixe_app/feactures/authenthication/presentation/pages/login_page.dart';
 import 'package:cinemixe_app/feactures/home/domain/entities/home_apiservice_entity.dart';
 import 'package:cinemixe_app/feactures/home/presentation/pages/overviewpage.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +37,7 @@ class ListViewWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             child: InkWell(
               onTap: () =>
-                  context.push(OverViewPage.routhpath, extra: value[index]),
+                  context.push(OverViewPage.routePath, extra: value[index]),
               child: Container(
                 height: height,
                 width: width2,

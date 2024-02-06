@@ -51,7 +51,7 @@ class FirestoreRepositoryImpl implements FireStoreRepository {
               backdrop_path: model.data().backdropPath,
               originalLanguage: model.data().originalTitle,
               voteCount: model.data().votecount,
-              poster_path: '')
+              poster_path: model.data().posterPath)
       ];
     }
   }

@@ -28,7 +28,7 @@ final _router = GoRouter(
       },
     ),
     GoRoute(
-      path: OverViewPage.routhpath,
+      path: OverViewPage.routePath,
       builder: (context, state) =>
           OverViewPage(entity: state.extra as HomeApiServiceEntity),
     ),

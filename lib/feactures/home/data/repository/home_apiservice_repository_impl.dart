@@ -31,7 +31,7 @@ class HomeApiServiceRepositoryImpl implements HomeApiServiceRepository {
           backdrop_path: result.backdropPath ?? "",
           originalLanguage: result.originalLanguage ?? "",
           voteCount: result.voteCount ?? 0,
-          poster_path: '',
+          poster_path: result.posterPath ?? "",
         )
     ];
     return results;
@@ -57,7 +57,7 @@ class HomeApiServiceRepositoryImpl implements HomeApiServiceRepository {
           backdrop_path: result.backdropPath ?? "",
           originalLanguage: result.originalLanguage ?? "",
           voteCount: result.voteCount ?? 0,
-          poster_path: '',
+          poster_path: result.posterPath ?? "",
         )
     ];
     return results;

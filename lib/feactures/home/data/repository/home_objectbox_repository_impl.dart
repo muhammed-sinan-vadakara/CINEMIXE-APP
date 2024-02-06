@@ -3,7 +3,6 @@ import 'package:cinemixe_app/feactures/home/data/datasource/home_objectbox_datas
 import 'package:cinemixe_app/feactures/home/data/models/home_objectbox_entity_model.dart';
 import 'package:cinemixe_app/feactures/home/domain/entities/home_apiservice_entity.dart';
 import 'package:cinemixe_app/feactures/home/domain/repositories/home_objectbox_repository.dart';
-import 'package:objectbox/objectbox.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'home_objectbox_repository_impl.g.dart';
@@ -50,10 +49,10 @@ class HomeObjectBoxMovieRepositoryImpl implements HomeObjectBoxMovieRepository {
             voteAverage: moviemodels.voteAverage ?? 0,
             originalTitle: moviemodels.originalTitle ?? '',
             originalLanguage: moviemodels.originalLanguage ?? '',
-            voteCount: moviemodels.voteCount!  ,
-            posterPath: '',
-            backdropPath: '',
-            posterpath: "")
+            voteCount: moviemodels.voteCount!,
+            posterPath: moviemodels.poster_path!,
+            backdropPath: moviemodels.backdrop_path!,
+            posterpath: moviemodels.poster_path!)
     ];
   }
 
@@ -147,5 +146,6 @@ class HomeObjectBoxMovieRepositoryImpl implements HomeObjectBoxMovieRepository {
 @riverpod
 HomeObjectBoxMovieRepository homeObjectBoxMovieRepository(
     HomeObjectBoxMovieRepositoryRef ref) {
-  return HomeObjectBoxMovieRepositoryImpl(datasource: ref.watch(homeObjectboxDatasourceProvider));
+  return HomeObjectBoxMovieRepositoryImpl(
+      datasource: ref.watch(homeObjectboxDatasourceProvider));
 }

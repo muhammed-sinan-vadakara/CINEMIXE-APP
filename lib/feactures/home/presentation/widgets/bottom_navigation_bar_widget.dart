@@ -1,5 +1,4 @@
 import 'package:cinemixe_app/core/theme/app_theme.dart';
-import 'package:cinemixe_app/core/theme/color_palette.dart';
 import 'package:cinemixe_app/feactures/home/presentation/pages/favarite_page.dart';
 import 'package:cinemixe_app/feactures/home/presentation/pages/homepage.dart';
 import 'package:cinemixe_app/feactures/home/presentation/pages/search_page.dart';
