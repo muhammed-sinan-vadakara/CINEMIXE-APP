@@ -13,7 +13,7 @@ class HomeVideoModel with _$HomeVideoModel {
   }) = _HomeVideoModel;
 
   factory HomeVideoModel.fromJson(Map<String, dynamic> json) =>
-      _$VideoModelFromJson(json);
+      _$HomeVideoModelFromJson(json);
 }
 
 @freezed
