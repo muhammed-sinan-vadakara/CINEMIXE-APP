@@ -1,6 +1,6 @@
-import 'package:cinemixe_app/core/objectbox/home_movie_objectbox.dart';
-import 'package:cinemixe_app/core/objectbox/home_popular_object.dart';
-import 'package:cinemixe_app/core/objectbox/home_toprated_objectbox.dart';
+// import 'package:cinemixe_app/core/objectbox/home_movie_objectbox.dart';
+// import 'package:cinemixe_app/core/objectbox/home_popular_object.dart';
+// import 'package:cinemixe_app/core/objectbox/home_toprated_objectbox.dart';
 import 'package:cinemixe_app/core/theme/light_theme.dart';
 import 'package:cinemixe_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,9 +12,9 @@ import 'core/router/router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await HomeMovieStoreObjectBox.createMethod();
-  await PopularObjectBox.createMethod();
-  await TopRatedObjectBox.createMethod();
+  // await HomeMovieStoreObjectBox.createMethod();
+  // await PopularObjectBox.createMethod();
+  // await TopRatedObjectBox.createMethod();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const ProviderScope(overrides: [], child: MovieApp()));

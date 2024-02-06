@@ -27,6 +27,11 @@ class HomeApiServiceRepositoryImpl implements HomeApiServiceRepository {
           voteAverage: result.voteAverage ?? 0,
           releaseDate:
               DateTime.tryParse(result.releaseDate ?? '') ?? DateTime.now(),
+          posterpath: result.posterPath ?? "",
+          backdrop_path: result.backdropPath ?? "",
+          originalLanguage: result.originalLanguage ?? "",
+          voteCount: result.voteCount ?? 0,
+          poster_path: '',
         )
     ];
     return results;
@@ -48,6 +53,11 @@ class HomeApiServiceRepositoryImpl implements HomeApiServiceRepository {
           voteAverage: result.voteAverage ?? 0,
           releaseDate:
               DateTime.tryParse(result.releaseDate ?? '') ?? DateTime.now(),
+          posterpath: result.posterPath ?? "",
+          backdrop_path: result.backdropPath ?? "",
+          originalLanguage: result.originalLanguage ?? "",
+          voteCount: result.voteCount ?? 0,
+          poster_path: '',
         )
     ];
     return results;
@@ -70,6 +80,11 @@ class HomeApiServiceRepositoryImpl implements HomeApiServiceRepository {
           voteAverage: result.voteAverage ?? 0,
           releaseDate:
               DateTime.tryParse(result.releaseDate ?? "") ?? DateTime.now(),
+          posterpath: result.posterPath ?? "",
+          backdrop_path: result.backdropPath ?? "",
+          originalLanguage: result.originalLanguage ?? "",
+          voteCount: result.voteCount ?? 0,
+          poster_path: result.posterPath ?? "",
         )
     ];
     return results;

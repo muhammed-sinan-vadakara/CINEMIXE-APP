@@ -7,7 +7,7 @@ class HomeObjectBoxMovieEntity {
   @Id()
   int id = 0;
   String? title;
-  int? movieId;
+  String? movieId;
   String? overview;
   String? backdrop_path;
   String? poster_path;

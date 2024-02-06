@@ -16,7 +16,7 @@ class FirestoreHomeModel with _$FirestoreHomeModel {
     required String backdropPath,
     required String title,
     required double voteAverage,
-    required DateTime releaseDate,
+    required DateTime releaseDate,required int votecount
   }) = _FirestoreHomeModel;
 
   factory FirestoreHomeModel.fromJson(Map<String, dynamic> json) =>

@@ -21,7 +21,8 @@ class FirestoreRepositoryImpl implements FireStoreRepository {
         backdropPath: entityclass.backdropPath,
         title: entityclass.title,
         voteAverage: entityclass.voteAverage,
-        releaseDate: entityclass.releaseDate);
+        releaseDate: entityclass.releaseDate,
+        votecount: entityclass.voteCount);
     await datasource.addToFireStore(movieadd);
   }
 
@@ -45,7 +46,12 @@ class FirestoreRepositoryImpl implements FireStoreRepository {
               backdropPath: model.data().backdropPath,
               title: model.data().title,
               voteAverage: model.data().voteAverage,
-              releaseDate: model.data().releaseDate)
+              releaseDate: model.data().releaseDate,
+              posterpath: model.data().posterPath,
+              backdrop_path: model.data().backdropPath,
+              originalLanguage: model.data().originalTitle,
+              voteCount: model.data().votecount,
+              poster_path: '')
       ];
     }
   }
