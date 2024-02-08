@@ -3,149 +3,58 @@ import 'package:cinemixe_app/feactures/home/data/datasource/home_objectbox_datas
 import 'package:cinemixe_app/feactures/home/data/models/home_objectbox_entity_model.dart';
 import 'package:cinemixe_app/feactures/home/domain/entities/home_apiservice_entity.dart';
 import 'package:cinemixe_app/feactures/home/domain/repositories/home_objectbox_repository.dart';
+
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'home_objectbox_repository_impl.g.dart';
 
-class HomeObjectBoxMovieRepositoryImpl implements HomeObjectBoxMovieRepository {
-  final HomeObjectBoxDatasource datasource;
-  HomeObjectBoxMovieRepositoryImpl({required this.datasource});
+class HomeObjectBoxRepositoryImpl implements HomeObjectBoxRepository {
+  final HomeObjectBoxDataSource dataSource;
+  HomeObjectBoxRepositoryImpl({required this.dataSource});
+
   @override
-  void addAllmovies(List<HomeApiServiceEntity> entity) {
-    final moviemodel = [
-      for (final movie in entity)
-        HomeObjectBoxMovieEntity(
-            title: movie.title,
-            movieId: movie.id.toString(),
-            backdrop_path: movie.backdropPath,
-            originalLanguage: movie.originalTitle,
-            originalTitle: movie.originalTitle,
-            overview: movie.overview,
-            poster_path: movie.posterPath,
-            releaseDate: movie.releaseDate,
-            voteAverage: movie.voteAverage,
-            voteCount: movie.voteCount)
-    ];
-    datasource.addAllMovies(moviemodel);
+  void addMovies(List<HomeApiServiceEntity> entity) {
+    final List<HomeApiServiceEntity> moviesToAdd = [];
+    for (final mov in entity) {
+      final entityModel = HomeObjectEntityModel(
+          movieId: mov.id,
+          originalTitle: mov.originalTitle,
+          overview: mov.overview,
+          posterPath: mov.posterPath,
+          backdropPath: mov.backdropPath,
+          title: mov.title,
+          voteAverage: mov.voteAverage,
+          releaseDate: mov.releaseDate.toString());
+      moviesToAdd.add(entityModel as HomeApiServiceEntity);
+    }
+    dataSource.addMovies(moviesToAdd.cast<HomeObjectEntityModel>());
   }
 
   @override
-  void clearAllMovies() {
-    datasource.clearAllMovies();
-  }
-
-  @override
-  List<HomeApiServiceEntity> getAllmovies() {
-    final models = datasource.getAllMovies();
+  List<HomeApiServiceEntity> getAllMovies() {
+    final data = dataSource.getAllMovies();
     return [
-      for (final moviemodels in models)
+      for (final model in data)
         HomeApiServiceEntity(
-            title: moviemodels.title ?? '',
-            id: moviemodels.id.toString(),
-            overview: moviemodels.overview ?? '',
-            backdrop_path: moviemodels.backdrop_path ?? '',
-            poster_path: moviemodels.poster_path ?? '',
-            releaseDate: moviemodels.releaseDate!,
-            voteAverage: moviemodels.voteAverage ?? 0,
-            originalTitle: moviemodels.originalTitle ?? '',
-            originalLanguage: moviemodels.originalLanguage ?? '',
-            voteCount: moviemodels.voteCount!,
-            posterPath: moviemodels.poster_path!,
-            backdropPath: moviemodels.backdrop_path!,
-            posterpath: moviemodels.poster_path!)
+            id: model.movieId ?? '',
+            originalTitle: model.originalTitle ?? '',
+            overview: model.overview ?? '',
+            posterPath: model.posterPath ?? '',
+            backdropPath: model.backdropPath ?? '',
+            title: model.title ?? '',
+            voteAverage: model.voteAverage ?? 0,
+            releaseDate:
+                DateTime.tryParse(model.releaseDate ?? '') ?? DateTime.now())
     ];
   }
 
-  // @override
-  // void addPopularMovies(List<HomeApiServiceEntity> entity) {
-  //   final moviemodel = [
-  //     for (final movie in entity)
-  //       PopularEntity(
-  //           title: movie.title,
-  //           movieId: movie.id,
-  //           backdrop_path: movie.backdrop_path,
-  //           originalLanguage: movie.originalLanguage,
-  //           originalTitle: movie.originalTitle,
-  //           overview: movie.overview,
-  //           poster_path: movie.poster_path,
-  //           releaseDate: movie.releaseDate,
-  //           voteAverage: movie.voteAverage,
-  //           voteCount: movie.voteCount)
-  //   ];
-  //   datasource.addPopularMovies(moviemodel);
-  // }
-
-  // @override
-  // void addTopRatedmovies(List<HomeApiServiceEntity> entity) {
-  //   final moviemodel = [
-  //     for (final movie in entity)
-  //       TopMoviesEntity(
-  //           title: movie.title,
-  //           movieId: movie.id,
-  //           backdrop_path: movie.backdrop_path,
-  //           originalLanguage: movie.originalLanguage,
-  //           originalTitle: movie.originalTitle,
-  //           overview: movie.overview,
-  //           poster_path: movie.poster_path,
-  //           releaseDate: movie.releaseDate,
-  //           voteAverage: movie.voteAverage,
-  //           voteCount: movie.voteCount)
-  //   ];
-  //   datasource.addTopRatedMovies(moviemodel);
-  // }
-
   @override
-  void clearPopularMovies() {
-    datasource.clearPopularMovies();
+  void clearAll() {
+    dataSource.clearAll();
   }
-
-  @override
-  void clearTopRatedMovies() {
-    datasource.clearTopRatedMovies();
-  }
-
-  // @override
-  // List<HomeApiServiceEntity> getPopularMovies() {
-  //   final models = datasource.getPopularMovies();
-  //   return [
-  //     for (final moviemodels in models)
-  //       HomeObjectBoxMovieEntity(
-  //           title: moviemodels.title ?? '',
-  //           id: moviemodels.id,
-  //           overview: moviemodels.overview ?? '',
-  //           backdrop_path: moviemodels.backdrop_path ?? '',
-  //           poster_path: moviemodels.poster_path ?? '',
-  //           releaseDate: moviemodels.releaseDate!,
-  //           voteAverage: moviemodels.voteAverage ?? 0,
-  //           originalTitle: moviemodels.originalTitle ?? '',
-  //           originalLanguage: moviemodels.originalLanguage ?? '',
-  //           voteCount: moviemodels.voteCount!)
-  //   ];
-  // }
-
-  // @override
-  // List<HomeApiServiceEntity> getTopRatedMovies() {
-  //   final models = datasource.getTopRatedMovies();
-  //   return [
-  //     for (final moviemodels in models)
-  //       HomeApiServiceEntity(
-  //           title: moviemodels.title ?? '',
-  //           id: moviemodels.id,
-  //           overview: moviemodels.overview ?? '',
-  //           backdrop_path: moviemodels.backdrop_path ?? '',
-  //           posterpath: moviemodels.poster_path ?? '',
-  //           releaseDate: moviemodels.releaseDate!,
-  //           voteAverage: moviemodels.voteAverage ?? 0,
-  //           originalTitle: moviemodels.originalTitle ?? '',
-  //           originalLanguage: moviemodels.originalLanguage ?? '',
-  //           voteCount: moviemodels.voteCount!)
-  //   ];
-  // }
 }
 
 @riverpod
-HomeObjectBoxMovieRepository homeObjectBoxMovieRepository(
-    HomeObjectBoxMovieRepositoryRef ref) {
-  return HomeObjectBoxMovieRepositoryImpl(
-      datasource: ref.watch(homeObjectboxDatasourceProvider));
+HomeObjectBoxRepository objRepository(ObjRepositoryRef ref) {
+  return HomeObjectBoxRepositoryImpl(dataSource: ref.watch(objDataSourceProvider));
 }

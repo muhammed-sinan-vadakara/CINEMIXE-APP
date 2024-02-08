@@ -7,7 +7,7 @@ part 'home_apiservice_entity.freezed.dart';
 @freezed
 class HomeApiServiceEntity with _$HomeApiServiceEntity {
   const factory HomeApiServiceEntity({
-    required String id,
+  required String id,
     required String originalTitle,
     required String overview,
     required String posterPath,
@@ -15,10 +15,5 @@ class HomeApiServiceEntity with _$HomeApiServiceEntity {
     required String title,
     required double voteAverage,
     required DateTime releaseDate,
-    required String posterpath,
-     backdrop_path,
-    required String? originalLanguage,
-    required int voteCount,
-    required String poster_path,
   }) = _HomeApiServiceEntity;
 }

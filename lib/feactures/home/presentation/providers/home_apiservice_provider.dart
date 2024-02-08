@@ -16,10 +16,9 @@ import 'package:cinemixe_app/feactures/home/domain/usecase/checkfavarite_movies_
 import 'package:cinemixe_app/feactures/home/domain/usecase/delete_review_usecase.dart';
 import 'package:cinemixe_app/feactures/home/domain/usecase/deletefromfirestore_usecase.dart';
 import 'package:cinemixe_app/feactures/home/domain/usecase/firestore_getall_movies_usecase.dart';
-import 'package:cinemixe_app/feactures/home/domain/usecase/getmovie_usecase.dart';
 import 'package:cinemixe_app/feactures/home/domain/usecase/getreview_usecase.dart';
+import 'package:cinemixe_app/feactures/home/domain/usecase/home_objectbox_movie_usecase.dart';
 import 'package:cinemixe_app/feactures/home/domain/usecase/searchmovie_usecase.dart';
-import 'package:cinemixe_app/feactures/home/domain/usecase/toprated_firestore_usecase.dart';
 import 'package:cinemixe_app/feactures/home/presentation/providers/home_apiservice_provider_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -33,11 +32,11 @@ class HomeApiServiceProvider extends _$HomeApiServiceProvider {
   Future<HomeApiserviceProviderState> build() async {
     final HomeApiServiceRepository repository =
         ref.read(homeApiServiceRepositoryProvider);
-    final HomeObjectBoxMovieRepository objectRepository = ref.watch(homeObjectBoxMovieRepositoryProvider);
+    final HomeObjectBoxRepository objectRepository = ref.watch(objRepositoryProvider);
     getAllMovies();
     final result = await Future.wait([
-      GetMoviesUseCase(repository: repository,objectRepository:objectRepository)(),
-      TopRatedUseCase(repository: repository)(),
+      GetMoviesUseCase(repository: repository, objRepository: objectRepository)(),
+      
     ]);
     return HomeApiserviceProviderState( 
       searchMovies: null,
