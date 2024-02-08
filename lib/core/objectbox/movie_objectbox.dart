@@ -14,13 +14,13 @@ class MovieObjectBox {
   }
 
   static MovieObjectBox get instance {
-    return _instance!;
+    return _instance!;  
   }
 
   static Future<void> create() async {
     if (_instance == null) {
       final documentDirectory = await getApplicationDocumentsDirectory();
-      final store = await openStore(
+      final store =  openStore(
           directory: join(documentDirectory.path, 'FilmyBeatz'));
       _instance = MovieObjectBox._create(store);
     }

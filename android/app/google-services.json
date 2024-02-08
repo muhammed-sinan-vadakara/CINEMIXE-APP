@@ -14,6 +14,50 @@
       },
       "oauth_client": [
         {
+          "client_id": "643994979441-5qfga0j88ri3gutk6hp0fgpeqm491rl3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cinemixe",
+            "certificate_hash": "a4d7c2caa2850b35ba1c160bec096d8bd3e77801"
+          }
+        },
+        {
+          "client_id": "643994979441-436kqnqskfilesllu8rukdutnmnu8tvc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNqPsvK84tOqVohGq9UbbDSnUQ51x-JDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643994979441-436kqnqskfilesllu8rukdutnmnu8tvc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "643994979441-92u8kjpt9l60i9huk0k8v8pofu5suc5t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cinemixe.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643994979441:android:788d35f6027bcaf358dfd0",
+        "android_client_info": {
+          "package_name": "com.example.cinemixe_app"
+        }
+      },
+      "oauth_client": [
+        {
           "client_id": "643994979441-436kqnqskfilesllu8rukdutnmnu8tvc.apps.googleusercontent.com",
           "client_type": 3
         }

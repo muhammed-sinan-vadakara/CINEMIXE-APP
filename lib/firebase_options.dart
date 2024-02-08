@@ -23,9 +23,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -55,29 +61,9 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBNqPsvK84tOqVohGq9UbbDSnUQ51x-JDo',
-    appId: '1:643994979441:android:86623394649c83e758dfd0',
+    appId: '1:643994979441:android:788d35f6027bcaf358dfd0',
     messagingSenderId: '643994979441',
     projectId: 'cinemixe-app-8926b',
     storageBucket: 'cinemixe-app-8926b.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBSRxYpUvorsYPU45kX3mtWSG08n2_4t10',
-    appId: '1:643994979441:ios:fc7dc13ff447e24e58dfd0',
-    messagingSenderId: '643994979441',
-    projectId: 'cinemixe-app-8926b',
-    storageBucket: 'cinemixe-app-8926b.appspot.com',
-    iosClientId: '643994979441-gh6m1mha0jbc689282ior2v6ri71gdvh.apps.googleusercontent.com',
-    iosBundleId: 'com.example.cinemixe',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBSRxYpUvorsYPU45kX3mtWSG08n2_4t10',
-    appId: '1:643994979441:ios:88b0a383ac7b752b58dfd0',
-    messagingSenderId: '643994979441',
-    projectId: 'cinemixe-app-8926b',
-    storageBucket: 'cinemixe-app-8926b.appspot.com',
-    iosClientId: '643994979441-92u8kjpt9l60i9huk0k8v8pofu5suc5t.apps.googleusercontent.com',
-    iosBundleId: 'com.example.cinemixe.RunnerTests',
   );
 }
